@@ -26,7 +26,7 @@ export default function Work({ s }) {
                 onClick={() => toggle(proj.id)}
                 aria-expanded={isOpen}
               >
-                <span className="work__card-id">MISSION_ID: {proj.id}</span>
+                <span className="work__card-id">PROJECT: {proj.id}</span>
                 <span className="work__card-title-preview">{proj.title}</span>
                 <span className="work__card-type">{proj.type}</span>
                 <span className="work__card-toggle">{isOpen ? '−' : '+'}</span>

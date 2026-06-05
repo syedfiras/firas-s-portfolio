@@ -10,7 +10,7 @@ export default function Contact({ s }) {
           <span className="contact__headline-rust">BUILD</span><br />
           <span className="contact__headline-hollow">TOGETHER.</span>
         </h2>
-        <a href="mailto:syedfiras@email.com" className="contact__cta-btn">
+        <a href="mailto:syedfiras06@email.com" className="contact__cta-btn">
           Initiate Contact →
         </a>
       </div>
