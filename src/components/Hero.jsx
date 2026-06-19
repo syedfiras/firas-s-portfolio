@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import profilePhoto from '../assets/profile.png';
-import resumeFile from '../assets/resume.pdf';
+import resumeFile from '../assets/Syed_Firas_Resume (1).docx?url';
 
 export default function Hero({ s }) {
   const [time, setTime] = useState(new Date());
@@ -49,7 +49,7 @@ export default function Hero({ s }) {
           <div className="hero__ctas">
             <a href="#contact" className="hero__cta hero__cta--primary">Start a Project →</a>
             <a href="#work" className="hero__cta hero__cta--secondary">View Work →</a>
-            <a href={resumeFile} download="Syed_Firas_Resume.pdf" className="hero__cta hero__cta--secondary">Download Resume ↓</a>
+            <a href={resumeFile} download="Syed_Firas_Resume.docx" className="hero__cta hero__cta--secondary">Download Resume ↓</a>
           </div>
         </div>
       </div>
