@@ -3,6 +3,7 @@ export const PROJECTS = [
     id: '01',
     type: 'MOBILE APPLICATION',
     title: 'BIFA Football Club Manager',
+    image: 'bifa.png',
     desc: 'A comprehensive team management system designed for BIFA Football Club. Streamlines player tracking, match scheduling, and club administration dashboards.',
     metrics: [
       'Real-time player registration portal',
@@ -17,6 +18,7 @@ export const PROJECTS = [
     id: '02',
     type: 'WEB APPLICATION',
     title: 'Auction Football System',
+    image: 'auction.png',
     desc: 'A high-performance auction platform for football clubs to bid on player transfers with real-time updates and secure payments.',
     metrics: [
       'Live auction bidding with countdown timers',
@@ -30,7 +32,8 @@ export const PROJECTS = [
   {
     id: '03',
     type: 'WEB APPLICATION',
-    title: 'Code Cafe Ordering System',
+    title: 'QR Code Cafe Ordering System',
+    image: 'qrcafe.png',
     desc: 'A modern ordering web app for a tech-themed café, featuring menu browsing, cart, and order tracking.',
     metrics: [
       'Interactive menu with categories',
@@ -45,6 +48,7 @@ export const PROJECTS = [
     id: '04',
     type: 'MOBILE APPLICATION',
     title: 'Sahaya Women Safety App',
+    image: 'sahaya.png',
     desc: 'A safety application utilizing geolocation features to trigger immediate emergency alerts, helping women in distress broadcast security warnings.',
     metrics: [
       'One-tap emergency broadcast signals',
@@ -52,12 +56,13 @@ export const PROJECTS = [
       'Offline emergency message fallback options'
     ],
     stack: ['React Native', 'Geofencing', 'Node.js', 'Express'],
-    links: { source: '#https://github.com/syedfiras/sahaya', preview: 'no perview' }
+    links: { source: 'https://github.com/syedfiras/sahaya', preview: 'no perview' }
   },
   {
     id: '05',
     type: 'MOBILE & WEB',
     title: 'GymNet Solutions Portal',
+    image: 'gymnet.png',
     desc: 'A full-featured gym management platform supporting member tracking, work scheduling, automated invoice billing, and monthly performance logs.',
     metrics: [
       'Interactive class scheduler timelines',
@@ -72,6 +77,7 @@ export const PROJECTS = [
     id: '06',
     type: 'WEB APPLICATION',
     title: 'IJESTM Journal Platform',
+    image: 'ijestm.png',
     desc: 'College journal website built for AITM with advanced SEO features tailored for academic publications and research papers.',
     metrics: [
       'Advanced SEO for academic publications',
@@ -85,7 +91,7 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
   {
-    year: '2026 - Present',
+    year: 'May - Jul 2026',
     role: 'Frontend Intern',
     company: 'Omnimate',
     type: 'Internship',
@@ -145,6 +151,6 @@ export const TICKER_ITEMS = [
 
 export const CONTACT_LINKS = [
   { label: 'EMAIL', value: 'syedfiras06@gmail.com', href: 'mailto:syedfiras06@gmail.com' },
-  { label: 'GITHUB ', value: 'github.com/syedfiras', href: 'https://github.com/syedfiras' },
-  { label: 'LINKEDIN ', value: 'linkedin.com/in/syedfiras7', href: 'https://linkedin.com/in/syedfiras7' },
+  { label: 'GITHUB', value: 'github.com/syedfiras', href: 'https://github.com/syedfiras' },
+  { label: 'LINKEDIN', value: 'linkedin.com/in/syedfiras7', href: 'https://linkedin.com/in/syedfiras7' },
 ];

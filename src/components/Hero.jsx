@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import profilePhoto from '../assets/profile.png';
-import resumeFile from '../assets/Syed_Firas_Resume (1).docx?url';
 
 export default function Hero({ s }) {
   const [time, setTime] = useState(new Date());
+  const [showResume, setShowResume] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 60000);
@@ -13,7 +13,7 @@ export default function Hero({ s }) {
   const formattedTime = time.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
   return (
-    <section className={`hero ${s(1)}`} id="hero">
+    <section className={`hero ${s(1)}`} id="hero" data-index={1}>
       <div className="hero__left">
         <div className="hero__avail">
           <div className="hero__avail-bar" />
@@ -49,12 +49,15 @@ export default function Hero({ s }) {
           <div className="hero__ctas">
             <a href="#contact" className="hero__cta hero__cta--primary">Start a Project →</a>
             <a href="#work" className="hero__cta hero__cta--secondary">View Work →</a>
-            <a href={resumeFile} download="Syed_Firas_Resume.docx" className="hero__cta hero__cta--secondary">Download Resume ↓</a>
+            <button onClick={() => setShowResume(true)} className="hero__cta hero__cta--primary">View Resume →</button>
           </div>
         </div>
       </div>
 
       <div className="hero__right">
+        <div className="hero__photo">
+          <img src={profilePhoto} alt="Syed Firas Peerzada" className="hero__photo-img" />
+        </div>
         <div className="hero__quote-container">
           <blockquote className="hero__quote">
             "Design is not just what it looks like and feels like. Design is how it works."
@@ -76,6 +79,15 @@ export default function Hero({ s }) {
           </div>
         </div>
       </div>
+
+      {showResume && (
+        <div className="resume-modal" onClick={() => setShowResume(false)}>
+          <div className="resume-modal__inner" onClick={(e) => e.stopPropagation()}>
+            <button className="resume-modal__close" onClick={() => setShowResume(false)}>×</button>
+            <iframe src="/resume.pdf" className="resume-modal__iframe" title="Resume" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

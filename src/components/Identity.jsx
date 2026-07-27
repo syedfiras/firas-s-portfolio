@@ -6,7 +6,7 @@ export default function Identity({ s }) {
   const [openExp, setOpenExp] = useState(null);
 
   return (
-    <section className={`identity ${s(4)}`} id="identity">
+    <section className={`identity ${s(4)}`} id="identity" data-index={4}>
       <div className="section-header">
         <h2 className="section-header__title">Identity</h2>
         <div className="section-header__rule" />

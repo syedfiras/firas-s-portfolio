@@ -10,7 +10,7 @@ export default function Ticker({ s }) {
   ));
 
   return (
-    <div className={`ticker ${s(2)}`} aria-hidden="true">
+    <div className={`ticker ${s(2)}`} aria-hidden="true" data-index={2}>
       <div className="ticker__track">
         <div className="ticker__group">{tickerContent}</div>
         <div className="ticker__group">{tickerContent}</div>

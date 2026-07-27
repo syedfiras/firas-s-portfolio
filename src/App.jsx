@@ -12,17 +12,24 @@ import './index.css';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [visible, setVisible] = useState([]);
+  const [visible, setVisible] = useState([0, 1, 6]);
 
   useEffect(() => {
-    if (!loading) {
-      const delays = [0, 60, 130, 200, 280, 360, 440, 520, 600];
-      delays.forEach((delay, i) => {
-        setTimeout(() => {
-          setVisible((prev) => [...prev, i]);
-        }, delay);
-      });
-    }
+    if (loading) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisible((prev) => (prev.includes(index) ? prev : [...prev, index]));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' }
+    );
+    document.querySelectorAll('[data-index]').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
   }, [loading]);
 
   const s = (index) => (visible.includes(index) ? 'visible' : 'hidden');

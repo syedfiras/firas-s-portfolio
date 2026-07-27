@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Nav({ s }) {
   return (
-    <nav className={`nav ${s(0)}`}>
+    <nav className={`nav ${s(0)}`} data-index={0}>
       <a href="#hero" className="nav__logo">
         SYED FIRAS<span className="nav__cursor" />
       </a>
