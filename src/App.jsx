@@ -13,7 +13,7 @@ import './index.css';
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState([0, 1, 6]);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);

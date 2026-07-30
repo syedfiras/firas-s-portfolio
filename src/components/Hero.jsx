@@ -3,7 +3,6 @@ import profilePhoto from "../assets/profile.png";
 
 export default function Hero({ s }) {
   const [time, setTime] = useState(new Date());
-  const [showResume, setShowResume] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 60000);
@@ -66,12 +65,14 @@ export default function Hero({ s }) {
             <a href="#work" className="hero__cta hero__cta--secondary">
               View Work →
             </a>
-            <button
-              onClick={() => setShowResume(true)}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hero__cta hero__cta--primary"
             >
               View Resume →
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -111,26 +112,6 @@ export default function Hero({ s }) {
         </div>
       </div>
 
-      {showResume && (
-        <div className="resume-modal" onClick={() => setShowResume(false)}>
-          <div
-            className="resume-modal__inner"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="resume-modal__close"
-              onClick={() => setShowResume(false)}
-            >
-              ×
-            </button>
-            <iframe
-              src="/resume.pdf"
-              className="resume-modal__iframe"
-              title="Resume"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
