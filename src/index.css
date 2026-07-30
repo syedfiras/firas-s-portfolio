@@ -264,7 +264,7 @@ a {
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--paper);
+    background: var(--ink-fixed);
     border-bottom: var(--border-heavy);
     max-height: 0;
     overflow: hidden;
@@ -275,9 +275,18 @@ a {
     max-height: 300px;
   }
 
+  .nav__links .nav__link {
+    color: var(--paper-fixed);
+    border-top: var(--border-light);
+  }
+
+  .nav__links .nav__link:hover {
+    background: var(--paper-fixed);
+    color: var(--ink-fixed);
+  }
+
   .nav__link {
     border-left: none;
-    border-top: var(--border-light);
     font-size: 12px;
     padding: 16px 24px;
     text-align: center;
