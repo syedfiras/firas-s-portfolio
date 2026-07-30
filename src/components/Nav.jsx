@@ -1,23 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Nav({ s, theme, toggleTheme }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav className={`nav ${s(0)}`} data-index={0}>
-      <a href="#hero" className="nav__logo">
+      <a href="#hero" className="nav__logo" onClick={closeMenu}>
         Syed Firas Peerzada
         <span className="nav__cursor" />
       </a>
-      <div className="nav__links">
-        <a href="#work" className="nav__link">
+
+      <button
+        className={`nav__hamburger ${menuOpen ? "nav__hamburger--open" : ""}`}
+        onClick={() => setMenuOpen((prev) => !prev)}
+        aria-label="Toggle menu"
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+
+      <div className={`nav__links ${menuOpen ? "nav__links--open" : ""}`}>
+        <a href="#work" className="nav__link" onClick={closeMenu}>
           Work
         </a>
-        <a href="#identity" className="nav__link">
+        <a href="#identity" className="nav__link" onClick={closeMenu}>
           About
         </a>
-        <a href="#contact" className="nav__link">
+        <a href="#contact" className="nav__link" onClick={closeMenu}>
           Contact
         </a>
-        <button className="nav__link nav__theme-toggle" onClick={toggleTheme}>
+        <button
+          className="nav__link nav__theme-toggle"
+          onClick={() => { toggleTheme(); closeMenu(); }}
+        >
           {theme === 'light' ? 'DARK' : 'LIGHT'}
         </button>
       </div>
