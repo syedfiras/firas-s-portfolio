@@ -95,7 +95,7 @@ export const EXPERIENCE = [
     role: 'Frontend Intern',
     company: 'Omnimate',
     type: 'Internship',
-    desc: 'Currently working as a Frontend Intern contributing to modern frontend systems, UI architectures, and scalable components.',
+    desc: 'Completed this internship as a Frontend Intern contributing to modern frontend systems, UI architectures, and scalable components.',
   },
   {
     year: '2025',
