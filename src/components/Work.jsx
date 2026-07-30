@@ -15,7 +15,13 @@ export default function Work({ s }) {
           <div className="work__card" key={proj.id}>
             {proj.image && (
               <div className="work__card-image-wrap">
-                <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+                {proj.links.preview ? (
+                  <a href={proj.links.preview} className="work__card-image-link">
+                    <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+                  </a>
+                ) : (
+                  <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+                )}
                 <span className="work__card-id">{proj.id}</span>
               </div>
             )}
@@ -34,12 +40,6 @@ export default function Work({ s }) {
                 ))}
               </div>
 
-              <div className="work__card-actions">
-                <a href={proj.links.source} className="work__card-action work__card-action--primary">GET_SOURCE</a>
-                {proj.links.preview && (
-                  <a href={proj.links.preview} className="work__card-action work__card-action--secondary">PREVIEW</a>
-                )}
-              </div>
             </div>
           </div>
         ))}

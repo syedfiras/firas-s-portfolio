@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Nav({ s }) {
+export default function Nav({ s, theme, toggleTheme }) {
   return (
     <nav className={`nav ${s(0)}`} data-index={0}>
       <a href="#hero" className="nav__logo">
@@ -17,6 +17,9 @@ export default function Nav({ s }) {
         <a href="#contact" className="nav__link">
           Contact
         </a>
+        <button className="nav__link nav__theme-toggle" onClick={toggleTheme}>
+          {theme === 'light' ? 'DARK' : 'LIGHT'}
+        </button>
       </div>
     </nav>
   );

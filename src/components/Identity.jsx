@@ -47,6 +47,15 @@ export default function Identity({ s }) {
             intentional. Every component earns its place. I ship products that
             people actually use, not prototypes that collect dust.
           </p>
+          <div className="identity__about-tag" style={{ marginTop: 40 }}>// Extracurricular</div>
+          <ul className="identity__extra-list">
+            <li className="identity__extra-item">
+              <strong>AIFF Certified Referee</strong> — Certified by the All India Football Federation, reflecting sharp decision-making, rule mastery, and composure under pressure.
+            </li>
+            <li className="identity__extra-item">
+              <strong>4× State Level Football Player</strong> — Represented at the state level in football across four tournaments.
+            </li>
+          </ul>
         </div>
       )}
 

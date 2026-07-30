@@ -13,6 +13,14 @@ import './index.css';
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState([0, 1, 6]);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
   useEffect(() => {
     if (loading) return;
@@ -38,7 +46,7 @@ export default function App() {
     <>
       {loading && <Loader onComplete={() => setLoading(false)} />}
       <GrainOverlay />
-      <Nav s={s} />
+      <Nav s={s} theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero s={s} />
         <Ticker s={s} />
