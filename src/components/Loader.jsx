@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const BOOT_MESSAGES = [
-  'Initializing kernel modules...',
-  'Loading system configuration...',
-  'Mounting component tree...',
-  'Establishing secure connection...',
-  'Compiling interface layers...',
-  'Calibrating rendering pipeline...',
-  'Optimizing asset delivery...',
-  'Ready to deploy.',
+  "Initializing kernel modules...",
+  "Loading system configuration...",
+  "Mounting component tree...",
+  "Establishing secure connection...",
+  "Compiling interface layers...",
+  "Calibrating rendering pipeline...",
+  "Optimizing asset delivery...",
+  "Ready to deploy.",
 ];
 
 export default function Loader({ onComplete }) {
@@ -21,7 +21,7 @@ export default function Loader({ onComplete }) {
     const interval = setInterval(() => {
       const elapsed = Date.now() - start;
       const target = Math.min((elapsed / DURATION) * 100, 99.5);
-      setProgress(p => {
+      setProgress((p) => {
         const next = Math.min(p + Math.floor(Math.random() * 6) + 2, target);
         return Math.min(next, 99.5);
       });
@@ -33,7 +33,10 @@ export default function Loader({ onComplete }) {
       setTimeout(onComplete, 400);
     }, DURATION);
 
-    return () => { clearInterval(interval); clearTimeout(timer); };
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
   }, [onComplete]);
 
   useEffect(() => {
@@ -42,7 +45,7 @@ export default function Loader({ onComplete }) {
   }, [progress]);
 
   return (
-    <div className={`loader ${progress >= 100 ? 'loader--hide' : ''}`}>
+    <div className={`loader ${progress >= 100 ? "loader--hide" : ""}`}>
       <div className="loader__terminal">
         <div className="loader__terminal-bar">
           <span className="loader__terminal-dot" />
@@ -50,8 +53,10 @@ export default function Loader({ onComplete }) {
           <span className="loader__terminal-dot" />
         </div>
 
-        <div className="loader__name">SYED FIRAS</div>
-        <div className="loader__tagline">App Developer &amp; Frontend Engineer</div>
+        <div className="loader__name">Syed Firas Peerzada</div>
+        <div className="loader__tagline">
+          App Developer &amp; Frontend Engineer
+        </div>
 
         <div className="loader__divider" />
 
@@ -63,11 +68,14 @@ export default function Loader({ onComplete }) {
 
         <div className="loader__progress-wrap">
           <div className="loader__progress-label">
-            <span>{String(Math.min(progress, 100)).padStart(3, ' ')}%</span>
+            <span>{String(Math.min(progress, 100)).padStart(3, " ")}%</span>
             <span>SYS.BOOT</span>
           </div>
           <div className="loader__progress-track">
-            <div className="loader__progress-fill" style={{ width: `${Math.min(progress, 100)}%` }} />
+            <div
+              className="loader__progress-fill"
+              style={{ width: `${Math.min(progress, 100)}%` }}
+            />
           </div>
         </div>
       </div>

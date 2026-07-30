@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import profilePhoto from '../assets/profile.png';
+import React, { useState, useEffect } from "react";
+import profilePhoto from "../assets/profile.png";
 
 export default function Hero({ s }) {
   const [time, setTime] = useState(new Date());
@@ -10,26 +10,38 @@ export default function Hero({ s }) {
     return () => clearInterval(timer);
   }, []);
 
-  const formattedTime = time.toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' });
+  const formattedTime = time.toLocaleTimeString("en-US", {
+    hour12: false,
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return (
     <section className={`hero ${s(1)}`} id="hero" data-index={1}>
       <div className="hero__left">
         <div className="hero__avail">
           <div className="hero__avail-bar" />
-          <span className="hero__avail-text">Available for Freelance // Q3 2025</span>
+          <span className="hero__avail-text">
+            Available for Freelance // Q3 2025
+          </span>
         </div>
 
         <div className="hero__headline">
           <div className="hero__headline-line">BUILD</div>
-          <div className="hero__headline-line hero__headline-line--rust">SHIP</div>
-          <div className="hero__headline-line hero__headline-line--hollow">REPEAT</div>
+          <div className="hero__headline-line hero__headline-line--rust">
+            SHIP
+          </div>
+          <div className="hero__headline-line hero__headline-line--hollow">
+            REPEAT
+          </div>
         </div>
 
         <div className="hero__widgets">
           <div className="hero__widget">
             <span className="hero__widget-label">SYS_STATUS</span>
-            <span className="hero__widget-val hero__widget-val--acid">ONLINE</span>
+            <span className="hero__widget-val hero__widget-val--acid">
+              ONLINE
+            </span>
           </div>
           <div className="hero__widget">
             <span className="hero__widget-label">LOCATION</span>
@@ -43,24 +55,39 @@ export default function Hero({ s }) {
 
         <div className="hero__bottom">
           <p className="hero__desc">
-            App developer and frontend engineer building functional, high-performance digital products.
-            Native mobile. Web interfaces. No fluff.
+            App developer and frontend engineer building functional,
+            high-performance digital products. Native mobile. Web interfaces. No
+            fluff.
           </p>
           <div className="hero__ctas">
-            <a href="#contact" className="hero__cta hero__cta--primary">Start a Project →</a>
-            <a href="#work" className="hero__cta hero__cta--secondary">View Work →</a>
-            <button onClick={() => setShowResume(true)} className="hero__cta hero__cta--primary">View Resume →</button>
+            <a href="#contact" className="hero__cta hero__cta--primary">
+              Start a Project →
+            </a>
+            <a href="#work" className="hero__cta hero__cta--secondary">
+              View Work →
+            </a>
+            <button
+              onClick={() => setShowResume(true)}
+              className="hero__cta hero__cta--primary"
+            >
+              View Resume →
+            </button>
           </div>
         </div>
       </div>
 
       <div className="hero__right">
         <div className="hero__photo">
-          <img src={profilePhoto} alt="Syed Firas Peerzada" className="hero__photo-img" />
+          <img
+            src={profilePhoto}
+            alt="Syed Firas Peerzada Peerzada"
+            className="hero__photo-img"
+          />
         </div>
         <div className="hero__quote-container">
           <blockquote className="hero__quote">
-            "Design is not just what it looks like and feels like. Design is how it works."
+            "Design is not just what it looks like and feels like. Design is how
+            it works."
           </blockquote>
           <div className="hero__quote-author">— Syed Firas Peerzada</div>
         </div>
@@ -69,22 +96,38 @@ export default function Hero({ s }) {
             <span className="hero__stat-label">Years of Experience</span>
             <div className="hero__stat-number">03+</div>
             <span className="hero__stat-sub">Building Digital Products</span>
-            <span className="hero__stat-ghost" aria-hidden="true">03</span>
+            <span className="hero__stat-ghost" aria-hidden="true">
+              03
+            </span>
           </div>
           <div className="hero__stat">
             <span className="hero__stat-label">Projects Delivered</span>
             <div className="hero__stat-number">20+</div>
             <span className="hero__stat-sub">Mobile & Web Applications</span>
-            <span className="hero__stat-ghost" aria-hidden="true">20</span>
+            <span className="hero__stat-ghost" aria-hidden="true">
+              20
+            </span>
           </div>
         </div>
       </div>
 
       {showResume && (
         <div className="resume-modal" onClick={() => setShowResume(false)}>
-          <div className="resume-modal__inner" onClick={(e) => e.stopPropagation()}>
-            <button className="resume-modal__close" onClick={() => setShowResume(false)}>×</button>
-            <iframe src="/resume.pdf" className="resume-modal__iframe" title="Resume" />
+          <div
+            className="resume-modal__inner"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="resume-modal__close"
+              onClick={() => setShowResume(false)}
+            >
+              ×
+            </button>
+            <iframe
+              src="/resume.pdf"
+              className="resume-modal__iframe"
+              title="Resume"
+            />
           </div>
         </div>
       )}
