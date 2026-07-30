@@ -41,7 +41,7 @@ export default function Identity({ s }) {
             I BUILD THINGS THAT <span>WORK.</span> NO DECORATION FOR DECORATION'S SAKE.
           </h3>
           <p className="identity__about-body">
-            I'm Syed Firas — an app developer and frontend engineer who treats
+            I'm Syed Firas Peerzada — an app developer and frontend engineer who treats
             every interface as architecture. I build mobile applications and web
             systems that are fast, accessible, and built to last. Every pixel is
             intentional. Every component earns its place. I ship products that
