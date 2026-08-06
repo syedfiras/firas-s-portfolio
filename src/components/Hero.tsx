@@ -23,6 +23,9 @@ export default function Hero({ s }: HeroProps) {
 
   return (
     <section className={`hero ${s(1)}`} id="hero" data-index={1}>
+      <h1 className="sr-only">
+        Syed Firas Peerzada — App Developer &amp; Frontend Engineer
+      </h1>
       <div className="hero__left">
         <div className="hero__avail">
           <div className="hero__avail-bar" />

@@ -16,7 +16,7 @@ const plexMono = IBM_Plex_Mono({
   variable: '--font-plex',
 });
 
-const SITE_URL = 'https://syedfiras.dev';
+const SITE_URL = 'https://www.syedfiras.dev';
 const SITE_NAME = 'Syed Firas Peerzada';
 
 export const metadata: Metadata = {
@@ -53,8 +53,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/og.png',
-        width: 1200,
-        height: 1200,
+        width: 1020,
+        height: 1542,
         alt: 'Syed Firas Peerzada — App Developer & Frontend Engineer',
       },
     ],
