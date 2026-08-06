@@ -52,7 +52,8 @@ export const metadata: Metadata = {
       'App developer and frontend engineer building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
     images: [
       {
-        url: '/og.png',
+        url: `${SITE_URL}/og.png`,
+        secureUrl: `${SITE_URL}/og.png`,
         width: 1020,
         height: 1542,
         alt: 'Syed Firas Peerzada — App Developer & Frontend Engineer',
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     title: 'Syed Firas Peerzada | App Developer & Frontend Engineer',
     description:
       'App developer and frontend engineer building functional, high-performance digital products.',
-    images: ['/og.png'],
+    images: [`${SITE_URL}/og.png`],
   },
   robots: {
     index: true,
