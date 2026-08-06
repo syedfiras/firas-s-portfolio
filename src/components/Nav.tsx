@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+'use client';
 
-export default function Nav({ s, theme, toggleTheme }) {
+import { useState } from 'react';
+
+interface NavProps {
+  s: (index: number) => string;
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+}
+
+export default function Nav({ s, theme, toggleTheme }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
@@ -13,7 +21,7 @@ export default function Nav({ s, theme, toggleTheme }) {
       </a>
 
       <button
-        className={`nav__hamburger ${menuOpen ? "nav__hamburger--open" : ""}`}
+        className={`nav__hamburger ${menuOpen ? 'nav__hamburger--open' : ''}`}
         onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"
       >
@@ -22,7 +30,7 @@ export default function Nav({ s, theme, toggleTheme }) {
         <span />
       </button>
 
-      <div className={`nav__links ${menuOpen ? "nav__links--open" : ""}`}>
+      <div className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
         <a href="#work" className="nav__link" onClick={closeMenu}>
           Work
         </a>
@@ -34,7 +42,10 @@ export default function Nav({ s, theme, toggleTheme }) {
         </a>
         <button
           className="nav__link nav__theme-toggle"
-          onClick={() => { toggleTheme(); closeMenu(); }}
+          onClick={() => {
+            toggleTheme();
+            closeMenu();
+          }}
         >
           {theme === 'light' ? 'DARK' : 'LIGHT'}
         </button>

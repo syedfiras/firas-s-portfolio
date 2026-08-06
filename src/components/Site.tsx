@@ -1,26 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import Nav from './components/Nav';
-import Hero from './components/Hero';
-import Ticker from './components/Ticker';
-import Work from './components/Work';
-import Identity from './components/Identity';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import GrainOverlay from './components/GrainOverlay';
-import Loader from './components/Loader';
-import './index.css';
+'use client';
 
-export default function App() {
+import { useCallback, useEffect, useState } from 'react';
+import Nav from './Nav';
+import Hero from './Hero';
+import Ticker from './Ticker';
+import Work from './Work';
+import Identity from './Identity';
+import Contact from './Contact';
+import Footer from './Footer';
+import GrainOverlay from './GrainOverlay';
+import Loader from './Loader';
+
+type Theme = 'light' | 'dark';
+
+export default function Site() {
   const [loading, setLoading] = useState(true);
-  const [visible, setVisible] = useState([0, 1, 6]);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [visible, setVisible] = useState<number[]>([0, 1, 6]);
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  const toggleTheme = useCallback(
+    () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light')),
+    []
+  );
+
+  const handleLoaderComplete = useCallback(() => setLoading(false), []);
 
   useEffect(() => {
     if (loading) return;
@@ -28,7 +36,7 @@ export default function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
+            const index = Number(entry.target.getAttribute('data-index'));
             setVisible((prev) => (prev.includes(index) ? prev : [...prev, index]));
             observer.unobserve(entry.target);
           }
@@ -40,11 +48,14 @@ export default function App() {
     return () => observer.disconnect();
   }, [loading]);
 
-  const s = (index) => (visible.includes(index) ? 'visible' : 'hidden');
+  const s = useCallback(
+    (index: number): string => (visible.includes(index) ? 'visible' : 'hidden'),
+    [visible]
+  );
 
   return (
     <>
-      {loading && <Loader onComplete={() => setLoading(false)} />}
+      {loading && <Loader onComplete={handleLoaderComplete} />}
       <GrainOverlay />
       <Nav s={s} theme={theme} toggleTheme={toggleTheme} />
       <main>

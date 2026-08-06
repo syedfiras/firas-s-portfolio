@@ -1,7 +1,13 @@
-import React, { useState, useEffect } from "react";
-import profilePhoto from "../assets/profile.png";
+'use client';
 
-export default function Hero({ s }) {
+import { useEffect, useState } from 'react';
+import profilePhoto from '../assets/profile.png';
+
+interface HeroProps {
+  s: (index: number) => string;
+}
+
+export default function Hero({ s }: HeroProps) {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -9,10 +15,10 @@ export default function Hero({ s }) {
     return () => clearInterval(timer);
   }, []);
 
-  const formattedTime = time.toLocaleTimeString("en-US", {
+  const formattedTime = time.toLocaleTimeString('en-US', {
     hour12: false,
-    hour: "2-digit",
-    minute: "2-digit",
+    hour: '2-digit',
+    minute: '2-digit',
   });
 
   return (
@@ -48,7 +54,9 @@ export default function Hero({ s }) {
           </div>
           <div className="hero__widget">
             <span className="hero__widget-label">LOCAL_TIME</span>
-            <span className="hero__widget-val">{formattedTime} HRS</span>
+            <span className="hero__widget-val" suppressHydrationWarning>
+              {formattedTime} HRS
+            </span>
           </div>
         </div>
 
@@ -80,15 +88,15 @@ export default function Hero({ s }) {
       <div className="hero__right">
         <div className="hero__photo">
           <img
-            src={profilePhoto}
+            src={profilePhoto.src}
             alt="Syed Firas Peerzada Peerzada"
             className="hero__photo-img"
           />
         </div>
         <div className="hero__quote-container">
           <blockquote className="hero__quote">
-            "Design is not just what it looks like and feels like. Design is how
-            it works."
+            &quot;Design is not just what it looks like and feels like. Design is
+            how it works.&quot;
           </blockquote>
           <div className="hero__quote-author">— Syed Firas Peerzada</div>
         </div>
@@ -111,7 +119,6 @@ export default function Hero({ s }) {
           </div>
         </div>
       </div>
-
     </section>
   );
 }

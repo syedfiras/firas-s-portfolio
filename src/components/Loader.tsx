@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from 'react';
 
-export default function Loader({ onComplete }) {
+interface LoaderProps {
+  onComplete: () => void;
+}
+
+export default function Loader({ onComplete }: LoaderProps) {
   const [done, setDone] = useState(false);
   const [progress, setProgress] = useState(0);
   const DURATION = 2000;
@@ -27,7 +31,7 @@ export default function Loader({ onComplete }) {
   }, [onComplete]);
 
   return (
-    <div className={`loader ${done ? "loader--hide" : ""}`}>
+    <div className={`loader ${done ? 'loader--hide' : ''}`}>
       <div className="loader__inner">
         <div className="loader__name">Syed Firas Peerzada</div>
         <div className="loader__bar-wrap">

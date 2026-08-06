@@ -1,7 +1,10 @@
-import React from 'react';
-import { TICKER_ITEMS } from '../data';
+import { TICKER_ITEMS } from '@/data';
 
-export default function Ticker({ s }) {
+interface TickerProps {
+  s: (index: number) => string;
+}
+
+export default function Ticker({ s }: TickerProps) {
   const tickerContent = TICKER_ITEMS.map((item, i) => (
     <span key={i}>
       <span className="ticker__item">{item}</span>
