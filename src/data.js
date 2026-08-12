@@ -91,6 +91,13 @@ export const PROJECTS = [
 
 export const EXPERIENCE = [
   {
+    year: '2026 - Present',
+    role: 'SDE Intern',
+    company: 'Dream Space Interior, Bangalore',
+    type: 'Internship',
+    desc: 'Working as a Software Development Engineer Intern, building and scaling full-stack web applications for Dream Space Interiors end-to-end — frontend, backend, and database.',
+  },
+  {
     year: 'May - Jul 2026',
     role: 'Frontend Intern',
     company: 'Omnimate',

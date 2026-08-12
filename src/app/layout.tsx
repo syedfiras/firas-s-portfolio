@@ -22,20 +22,21 @@ const SITE_NAME = 'Syed Firas Peerzada';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzada | App Developer & Frontend Engineer',
+    default: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
     template: '%s | Syed Firas Peerzada',
   },
   description:
-    'Portfolio of Syed Firas Peerzada — App Developer and Frontend Engineer specializing in building bold, functional digital experiences. React Native, Next.js, Node.js.',
+    'Portfolio of Syed Firas Peerzada — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore. React Native, Next.js, Node.js.',
   keywords: [
     'Syed Firas Peerzada',
-    'app developer',
+    'full stack developer',
+    'sde intern',
     'frontend developer',
     'react native developer',
     'next.js developer',
     'portfolio',
     'mobile app developer',
-    'frontend engineer',
+    'dream space interiors',
   ],
   authors: [{ name: 'Syed Firas Peerzada', url: SITE_URL }],
   creator: 'Syed Firas Peerzada',
@@ -47,24 +48,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzada | App Developer & Frontend Engineer',
+    title: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
     description:
-      'App developer and frontend engineer building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
+      'Full stack developer and SDE Intern at Dream Space Interiors, Bangalore. Building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
         secureUrl: `${SITE_URL}/og.png`,
         width: 1020,
         height: 1542,
-        alt: 'Syed Firas Peerzada — App Developer & Frontend Engineer',
+        alt: 'Syed Firas Peerzada — Full Stack Developer & SDE Intern',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzada | App Developer & Frontend Engineer',
+    title: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
     description:
-      'App developer and frontend engineer building functional, high-performance digital products.',
+      'Full stack developer and SDE Intern at Dream Space Interiors, Bangalore building functional digital products.',
     images: [`${SITE_URL}/og.png`],
   },
   robots: {
@@ -96,7 +97,7 @@ export default function RootLayout({
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          'Portfolio of Syed Firas Peerzada — App Developer and Frontend Engineer.',
+          'Portfolio of Syed Firas Peerzada — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore.',
         inLanguage: 'en',
       },
       {
@@ -104,7 +105,7 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: 'App Developer & Frontend Engineer',
+        jobTitle: 'Full Stack Developer & SDE Intern',
         email: 'mailto:syedfiras06@gmail.com',
         image: `${SITE_URL}/og.png`,
         sameAs: [
@@ -121,14 +122,19 @@ export default function RootLayout({
         ],
         worksFor: {
           '@type': 'Organization',
-          name: 'Freelance',
+          name: 'Dream Space Interiors',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bangalore',
+            addressCountry: 'IN',
+          },
         },
       },
     ],
   };
 
   return (
-    <html lang="en" className={`${bebas.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${bebas.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

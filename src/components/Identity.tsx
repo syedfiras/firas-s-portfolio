@@ -50,12 +50,12 @@ export default function Identity({ s }: IdentityProps) {
             DECORATION&apos;S SAKE.
           </h3>
           <p className="identity__about-body">
-            I&apos;m Syed Firas Peerzada — an app developer and frontend engineer
-            who treats every interface as architecture. I build mobile
-            applications and web systems that are fast, accessible, and built to
-            last. Every pixel is intentional. Every component earns its place. I
-            ship products that people actually use, not prototypes that collect
-            dust.
+            I&apos;m Syed Firas Peerzada — a full stack developer currently
+            interning as an SDE at Dream Space Interiors, Bangalore. I build
+            mobile applications and web systems that are fast, accessible, and
+            built to last. Every pixel is intentional. Every component earns its
+            place. I ship products that people actually use, not prototypes that
+            collect dust.
           </p>
           <div className="identity__about-tag" style={{ marginTop: 40 }}>
             // Extracurricular
