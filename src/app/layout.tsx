@@ -106,7 +106,7 @@ export default function RootLayout({
         name: SITE_NAME,
         url: SITE_URL,
         jobTitle: 'Full Stack Developer & SDE Intern',
-        email: 'mailto:syedfiras06@gmail.com',
+        email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
         sameAs: [
           'https://github.com/syedfiras',

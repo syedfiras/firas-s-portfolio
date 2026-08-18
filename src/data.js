@@ -157,7 +157,7 @@ export const TICKER_ITEMS = [
 ];
 
 export const CONTACT_LINKS = [
-  { label: 'EMAIL', value: 'syedfiras06@gmail.com', href: 'mailto:syedfiras06@gmail.com' },
+  { label: 'EMAIL', value: 'workwithfiras@gmail.com', href: 'mailto:workwithfiras@gmail.com' },
   { label: 'GITHUB', value: 'github.com/syedfiras', href: 'https://github.com/syedfiras' },
   { label: 'LINKEDIN', value: 'linkedin.com/in/syedfiras7', href: 'https://linkedin.com/in/syedfiras7' },
 ];
