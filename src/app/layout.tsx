@@ -55,8 +55,8 @@ export const metadata: Metadata = {
       {
         url: `${SITE_URL}/og.png`,
         secureUrl: `${SITE_URL}/og.png`,
-        width: 1020,
-        height: 1542,
+        width: 1983,
+        height: 793,
         alt: 'Syed Firas Peerzada — Full Stack Developer & SDE Intern',
       },
     ],
