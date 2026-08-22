@@ -4,11 +4,9 @@ import { useState } from 'react';
 
 interface NavProps {
   s: (index: number) => string;
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
 }
 
-export default function Nav({ s, theme, toggleTheme }: NavProps) {
+export default function Nav({ s }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = () => setMenuOpen(false);
@@ -40,15 +38,6 @@ export default function Nav({ s, theme, toggleTheme }: NavProps) {
         <a href="#contact" className="nav__link" onClick={closeMenu}>
           Contact
         </a>
-        <button
-          className="nav__link nav__theme-toggle"
-          onClick={() => {
-            toggleTheme();
-            closeMenu();
-          }}
-        >
-          {theme === 'light' ? 'DARK' : 'LIGHT'}
-        </button>
       </div>
     </nav>
   );

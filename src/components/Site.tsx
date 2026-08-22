@@ -11,22 +11,9 @@ import Footer from './Footer';
 import GrainOverlay from './GrainOverlay';
 import Loader from './Loader';
 
-type Theme = 'light' | 'dark';
-
 export default function Site() {
   const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState<number[]>([0, 1, 6]);
-  const [theme, setTheme] = useState<Theme>('dark');
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = useCallback(
-    () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light')),
-    []
-  );
 
   const handleLoaderComplete = useCallback(() => setLoading(false), []);
 
@@ -57,7 +44,7 @@ export default function Site() {
     <>
       {loading && <Loader onComplete={handleLoaderComplete} />}
       <GrainOverlay />
-      <Nav s={s} theme={theme} toggleTheme={toggleTheme} />
+      <Nav s={s} />
       <main>
         <Hero s={s} />
         <Ticker s={s} />
