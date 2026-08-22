@@ -9,11 +9,11 @@ export default function Contact({ s }: ContactProps) {
     <section className={`contact ${s(5)}`} id="contact" data-index={5}>
       <div className="contact__left">
         <h2 className="contact__headline">
-          LET&apos;S
+          LET&apos;S MAKE
           <br />
-          <span className="contact__headline-rust">BUILD</span>
+          <span className="contact__headline-rust">SOMETHING</span>
           <br />
-          <span className="contact__headline-hollow">TOGETHER.</span>
+          <span className="contact__headline-hollow">GOOD.</span>
         </h2>
         <a href="mailto:workwithfiras@gmail.com" className="contact__cta-btn">
           Let&apos;s Talk →
@@ -37,10 +37,10 @@ export default function Contact({ s }: ContactProps) {
         </div>
         <div className="contact__avail">
           <div className="contact__avail-text">
-            CURRENTLY ACCEPTING NEW PROJECTS
+            AVAILABLE FOR NEW PROJECTS
           </div>
           <div className="contact__avail-sub">
-            Available for Q3-Q4 2025 engagements
+            Let&apos;s discuss what you&apos;re building.
           </div>
         </div>
       </div>

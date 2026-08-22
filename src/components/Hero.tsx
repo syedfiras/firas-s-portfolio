@@ -30,33 +30,33 @@ export default function Hero({ s }: HeroProps) {
         <div className="hero__avail">
           <div className="hero__avail-bar" />
           <span className="hero__avail-text">
-            Available for Freelance // Q3 2025
+            Available for select freelance work
           </span>
         </div>
 
         <div className="hero__headline">
           <div className="hero__headline-line">BUILD</div>
           <div className="hero__headline-line hero__headline-line--rust">
-            SHIP
+            CREATE
           </div>
           <div className="hero__headline-line hero__headline-line--hollow">
-            REPEAT
+            IMPACT
           </div>
         </div>
 
         <div className="hero__widgets">
           <div className="hero__widget">
-            <span className="hero__widget-label">SYS_STATUS</span>
+            <span className="hero__widget-label">Status</span>
             <span className="hero__widget-val hero__widget-val--acid">
               ONLINE
             </span>
           </div>
           <div className="hero__widget">
-            <span className="hero__widget-label">LOCATION</span>
-            <span className="hero__widget-val">KARNATAKA, IN</span>
+            <span className="hero__widget-label">Based in</span>
+            <span className="hero__widget-val">Karnataka, India</span>
           </div>
           <div className="hero__widget">
-            <span className="hero__widget-label">LOCAL_TIME</span>
+            <span className="hero__widget-label">Local time</span>
             <span className="hero__widget-val" suppressHydrationWarning>
               {formattedTime} HRS
             </span>
@@ -65,9 +65,8 @@ export default function Hero({ s }: HeroProps) {
 
         <div className="hero__bottom">
           <p className="hero__desc">
-            Full stack developer and SDE Intern at Dream Space Interiors,
-            Bangalore. Building functional, high-performance digital products.
-            Native mobile. Web interfaces. No fluff.
+            Full-stack developer crafting considered web experiences and mobile
+            products that are fast, useful, and easy to use.
           </p>
           <div className="hero__ctas">
             <a href="#contact" className="hero__cta hero__cta--primary">
@@ -105,7 +104,7 @@ export default function Hero({ s }: HeroProps) {
         </div>
         <div className="hero__stats-row">
           <div className="hero__stat">
-            <span className="hero__stat-label">Years of Experience</span>
+            <span className="hero__stat-label">Experience</span>
             <div className="hero__stat-number">03+</div>
             <span className="hero__stat-sub">Building Digital Products</span>
             <span className="hero__stat-ghost" aria-hidden="true">
@@ -113,7 +112,7 @@ export default function Hero({ s }: HeroProps) {
             </span>
           </div>
           <div className="hero__stat">
-            <span className="hero__stat-label">Projects Delivered</span>
+            <span className="hero__stat-label">Projects</span>
             <div className="hero__stat-number">20+</div>
             <span className="hero__stat-sub">Mobile & Web Applications</span>
             <span className="hero__stat-ghost" aria-hidden="true">

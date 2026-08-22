@@ -8,9 +8,9 @@ export default function Footer({ s }: FooterProps) {
       <span className="footer__copy">
         © {new Date().getFullYear()} Syed Firas Peerzada.
       </span>
-      <span className="footer__tagline">Built with raw code. No templates.</span>
+      <span className="footer__tagline">Designed and built with care.</span>
       <span className="footer__location">
-        SYS.ARCH.001 // NO RIGHTS RESERVED
+        Karnataka, India
       </span>
     </footer>
   );

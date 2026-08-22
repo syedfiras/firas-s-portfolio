@@ -44,6 +44,7 @@ export default function Identity({ s }: IdentityProps) {
 
       {activeTab === 'ABOUT' && (
         <div className="identity__about">
+          <div className="identity__about-copy">
           <div className="identity__about-tag">// About Me</div>
           <h3 className="identity__about-headline">
             I BUILD THINGS THAT <span>WORK.</span> NO DECORATION FOR
@@ -71,6 +72,23 @@ export default function Identity({ s }: IdentityProps) {
               the state level in football across four tournaments.
             </li>
           </ul>
+          </div>
+          <div className="identity__contributions">
+            <div className="identity__about-tag">GitHub contributions</div>
+            <a
+              href="https://github.com/syedfiras"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="identity__contributions-link"
+            >
+              <img
+                src="https://ghchart.rshah.org/3f7068/syedfiras"
+                alt="GitHub contribution graph for Syed Firas"
+                className="identity__contributions-graph"
+              />
+              <span>View my activity on GitHub →</span>
+            </a>
+          </div>
         </div>
       )}
 
