@@ -15,7 +15,16 @@ export default function Site() {
   const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState<number[]>([0, 1, 6]);
 
-  const handleLoaderComplete = useCallback(() => setLoading(false), []);
+  useEffect(() => {
+    if (sessionStorage.getItem('portfolio_loader_seen')) {
+      setLoading(false);
+    }
+  }, []);
+
+  const handleLoaderComplete = useCallback(() => {
+    sessionStorage.setItem('portfolio_loader_seen', '1');
+    setLoading(false);
+  }, []);
 
   useEffect(() => {
     if (loading) return;

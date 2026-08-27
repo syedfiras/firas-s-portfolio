@@ -29,13 +29,13 @@ export default function Nav({ s }: NavProps) {
       </button>
 
       <div className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
-        <a href="#work" className="nav__link" onClick={closeMenu}>
+        <a href="/#work" className="nav__link" onClick={closeMenu}>
           Work
         </a>
-        <a href="#identity" className="nav__link" onClick={closeMenu}>
+        <a href="/#identity" className="nav__link" onClick={closeMenu}>
           About
         </a>
-        <a href="#contact" className="nav__link" onClick={closeMenu}>
+        <a href="/#contact" className="nav__link" onClick={closeMenu}>
           Contact
         </a>
       </div>
