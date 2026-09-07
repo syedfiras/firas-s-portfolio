@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Project } from '@/data';
 
 export default function WorkCard({
@@ -61,15 +62,39 @@ export default function WorkCard({
           {proj.links.preview ? (
             isInProgress && onInProgress ? (
               <a href={proj.links.preview} className="work__card-image-link work__card-image-link--in-progress" onClick={handleInProgressClick}>
-                <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+                <Image
+                  src={`/projects/${proj.image}`}
+                  alt={proj.title}
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 850px) 50vw, 33vw"
+                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                  quality={90}
+                  priority={!!proj.featured}
+                />
               </a>
             ) : (
               <a href={proj.links.preview} className="work__card-image-link" target="_blank" rel="noopener noreferrer">
-                <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+                <Image
+                  src={`/projects/${proj.image}`}
+                  alt={proj.title}
+                  fill
+                  sizes="(max-width: 600px) 100vw, (max-width: 850px) 50vw, 33vw"
+                  style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                  quality={90}
+                  priority={!!proj.featured}
+                />
               </a>
             )
           ) : (
-            <img src={`/projects/${proj.image}`} alt={proj.title} className="work__card-image" />
+            <Image
+              src={`/projects/${proj.image}`}
+              alt={proj.title}
+              fill
+              sizes="(max-width: 600px) 100vw, (max-width: 850px) 50vw, 33vw"
+              style={{ objectFit: 'cover', objectPosition: 'top center' }}
+              quality={90}
+              priority={!!proj.featured}
+            />
           )}
           <span className="work__card-id">{proj.id}</span>
           {isBadged && <span className={`work__card-badge ${isPaused ? 'work__card-badge--paused' : isLive ? 'work__card-badge--live' : ''}`}>{badgeText}</span>}
@@ -100,7 +125,7 @@ export default function WorkCard({
 
         {variant === 'projects' && (
           <div className="work__card-actions">
-            {/* GitHub — always show: real link if available and not private Football, otherwise disabled/private */}
+            {/* GitHub — show link if available; private repo handling; hide for live projects without source per spec */}
             {isFootballPrivate ? (
               <button className="work__card-btn work__card-btn--github" onClick={handlePrivateClick}>
                 GitHub →
@@ -115,13 +140,13 @@ export default function WorkCard({
               >
                 GitHub →
               </a>
-            ) : (
+            ) : isInProgress || isPaused ? (
               <button className="work__card-btn work__card-btn--disabled" onClick={handleInProgressClick}>
                 GitHub →
               </button>
-            )}
+            ) : null}
 
-            {/* Live Preview — always for all except Sahaya (06) which is not preview */}
+            {/* Live Demo / Preview — Live Demo label for Interiora Studio per spec */}
             {proj.id === '06' ? null : proj.links.preview ? (
               <a
                 href={proj.links.preview}
@@ -130,11 +155,11 @@ export default function WorkCard({
                 className="work__card-btn work__card-btn--preview"
                 onClick={isInProgress && onInProgress ? handleInProgressClick : undefined}
               >
-                Live Preview →
+                {proj.id === '08' ? 'Live Demo →' : 'Live Preview →'}
               </a>
             ) : (
               <button className="work__card-btn work__card-btn--disabled" onClick={handleInProgressClick}>
-                Live Preview →
+                {proj.id === '08' ? 'Live Demo →' : 'Live Preview →'}
               </button>
             )}
           </div>

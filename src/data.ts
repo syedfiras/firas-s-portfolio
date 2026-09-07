@@ -4,6 +4,7 @@ export interface SkillCategory { category: string; items: string[]; ghost: strin
 export interface ContactLink { label: string; value: string; href: string; }
 
 export const PROJECTS: Project[] = [
+  { id: '08', type: 'FULL-STACK WEB APPLICATION', title: 'Interiora Studio', image: 'interiora.png', desc: 'Interiora Studio is a full-stack interior design management platform built with a modern, responsive interface. It combines authentication, project management, and a polished interior-design-focused user experience into a production-ready web application.', metrics: [], stack: ['React', 'JavaScript', 'Tailwind CSS', 'Vercel'], links: { source: '', preview: 'https://interior-swart-nine.vercel.app/login' }, featured: true, status: 'live' },
   { id: '01', type: 'MOBILE & WEB', title: 'BIFA Football Club Manager', image: 'bifa.png', desc: 'A comprehensive team management system for BIFA Football Club, streamlining player tracking, match scheduling, and club administration.', metrics: [], stack: ['React Native', 'Node.js', 'NativeWind', 'Supabase'], links: { source: 'https://github.com/syedfiras/bifa', preview: 'https://bifa-registration-portal.netlify.app/' }, featured: true, status: 'live' },
   { id: '02', type: 'WEB APPLICATION', title: 'Auction Football System', image: 'auction.png', desc: 'A high-performance auction platform for football clubs to bid on player transfers with real-time updates and secure payments.', metrics: [], stack: ['React', 'Node.js', 'Supabase', 'Stripe'], links: { source: 'https://github.com/syedfiras/auction', preview: 'https://auction-six-virid.vercel.app/login' }, featured: false, status: 'live' },
   { id: '03', type: 'MOBILE & WEB', title: 'GymNet Solutions Portal', image: 'gymnet.png', desc: 'A gym management platform for member tracking, work scheduling, automated billing, and monthly performance logs.', metrics: [], stack: ['Ionic', 'Angular', 'Node.js', 'Supabase'], links: { source: 'https://github.com/syedfiras/gym', preview: 'https://gymnetsolutions.netlify.app/' }, featured: true, status: 'live' },
@@ -16,7 +17,7 @@ export const PROJECTS: Project[] = [
 export const FEATURED_PROJECTS: Project[] = PROJECTS.filter((p) => p.featured);
 
 export const EXPERIENCE: Experience[] = [
-  { year: '2026 - Present', role: 'SDE Intern', company: 'Dream Space Interior, Bangalore', type: 'Internship', desc: 'Building and scaling full-stack web applications end-to-end — frontend, backend, and database.' },
+  { year: 'Jul – Sep 2026', role: 'SDE Intern', company: 'Dream Space Interiors, Bangalore', type: 'Internship', desc: 'Built and scaled full-stack web applications end-to-end — frontend, backend, and database. Delivered Interiora Studio to production on Vercel with authentication, project management, and responsive UI. Now open to new opportunities.' },
   { year: 'May - Jul 2026', role: 'Frontend Intern', company: 'Omnimate', type: 'Internship', desc: 'Contributed to modern frontend systems, UI architectures, and scalable components.' },
   { year: '2025', role: 'Web Development Intern', company: 'My Job Grow & IIT Hyderabad', type: 'Internship', desc: 'Focused on full-stack integration and responsive client interfaces.' },
   { year: 'Mar - Jun 2025', role: 'Frontend Intern', company: 'iTecz Solutions', type: 'Internship', desc: 'Developed mobile and web systems using Ionic and Angular.' },

@@ -37,10 +37,10 @@ export default function Contact({ s }: ContactProps) {
         </div>
         <div className="contact__avail">
           <div className="contact__avail-text">
-            AVAILABLE FOR NEW PROJECTS
+            OPEN TO NEW OPPORTUNITIES
           </div>
           <div className="contact__avail-sub">
-            Let&apos;s discuss what you&apos;re building.
+            Former SDE Intern @ Dream Space (Jul–Sep 2026) — let&apos;s discuss what you&apos;re building.
           </div>
         </div>
       </div>

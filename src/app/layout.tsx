@@ -22,15 +22,15 @@ const SITE_NAME = 'Syed Firas Peerzada';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
+    default: 'Syed Firas Peerzada | Full Stack Developer — Former SDE Intern @ Dream Space Interiors (Open to Work)',
     template: '%s | Syed Firas Peerzada',
   },
   description:
-    'Portfolio of Syed Firas Peerzada — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore. React Native, Next.js, Node.js.',
+    'Portfolio of Syed Firas Peerzada — Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work. React Native, Next.js, Node.js.',
   keywords: [
     'Syed Firas Peerzada',
     'full stack developer',
-    'sde intern',
+    'open to work',
     'frontend developer',
     'react native developer',
     'next.js developer',
@@ -48,24 +48,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
+    title: 'Syed Firas Peerzada | Full Stack Developer — Former SDE Intern @ Dream Space Interiors (Open to Work)',
     description:
-      'Full stack developer and SDE Intern at Dream Space Interiors, Bangalore. Building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
+      'Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work. Building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
         secureUrl: `${SITE_URL}/og.png`,
         width: 1983,
         height: 793,
-        alt: 'Syed Firas Peerzada — Full Stack Developer & SDE Intern',
+        alt: 'Syed Firas Peerzada — Full Stack Developer (Open to Work)',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzada | Full Stack Developer & SDE Intern',
+    title: 'Syed Firas Peerzada | Full Stack Developer (Open to Work)',
     description:
-      'Full stack developer and SDE Intern at Dream Space Interiors, Bangalore building functional digital products.',
+      'Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work building functional digital products.',
     images: [`${SITE_URL}/og.png`],
   },
   robots: {
@@ -97,7 +97,7 @@ export default function RootLayout({
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          'Portfolio of Syed Firas Peerzada — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore.',
+          'Portfolio of Syed Firas Peerzada — Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work.',
         inLanguage: 'en',
       },
       {
@@ -105,7 +105,7 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: 'Full Stack Developer & SDE Intern',
+        jobTitle: 'Full Stack Developer (Open to Work)',
         email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
         sameAs: [
@@ -120,7 +120,7 @@ export default function RootLayout({
           'Node.js',
           'UI Engineering',
         ],
-        worksFor: {
+        alumniOf: {
           '@type': 'Organization',
           name: 'Dream Space Interiors',
           address: {
@@ -129,6 +129,7 @@ export default function RootLayout({
             addressCountry: 'IN',
           },
         },
+        seeks: 'Full-time and freelance opportunities in full-stack web and mobile development',
       },
     ],
   };

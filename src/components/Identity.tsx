@@ -51,12 +51,15 @@ export default function Identity({ s }: IdentityProps) {
             DECORATION&apos;S SAKE.
           </h3>
           <p className="identity__about-body">
-            I&apos;m Syed Firas Peerzada — a full stack developer currently
-            interning as an SDE at Dream Space Interiors, Bangalore. I build
-            mobile applications and web systems that are fast, accessible, and
-            built to last. Every pixel is intentional. Every component earns its
-            place. I ship products that people actually use, not prototypes that
-            collect dust.
+            I&apos;m Syed Firas Peerzada — a full stack developer and former
+            SDE Intern at Dream Space Interiors, Bangalore (Jul–Sep 2026). I
+            build mobile applications and web systems that are fast, accessible,
+            and built to last. During my internship I built and shipped{" "}
+            <strong>Interiora Studio</strong> — a production-ready interior design
+            management platform with authentication, project management, and a
+            responsive Tailwind UI on Vercel. Every pixel is intentional. Every
+            component earns its place. I ship products people actually use. Now
+            open to full-time and freelance opportunities.
           </p>
           <div className="identity__about-tag" style={{ marginTop: 40 }}>
             // Extracurricular
@@ -70,6 +73,11 @@ export default function Identity({ s }: IdentityProps) {
             <li className="identity__extra-item">
               <strong>4× State Level Football Player</strong> — Represented at
               the state level in football across four tournaments.
+            </li>
+            <li className="identity__extra-item">
+              <strong>6+ Hackathons</strong> — Attended 6+ national hackathons,
+              building end-to-end prototypes under tight deadlines, collaborating
+              in cross-functional teams, and shipping functional demos.
             </li>
           </ul>
           </div>
