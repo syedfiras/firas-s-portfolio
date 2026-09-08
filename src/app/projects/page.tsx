@@ -5,7 +5,7 @@ import ProjectsGrid from '@/components/ProjectsGrid';
 
 export const metadata: Metadata = {
   title: 'All Projects',
-  description: 'All projects by Syed Firas Peerzada — Interiora Studio, BIFA, GymNet, IJESTM, Auction Football, FootballCoachAI and more.',
+  description: 'All projects by Syed Firas Peerzada — BIFA, GymNet, IJESTM, Auction Football, FootballCoachAI and more.',
 };
 
 export default function ProjectsPage() {

@@ -146,7 +146,6 @@ export default function WorkCard({
               </button>
             ) : null}
 
-            {/* Live Demo / Preview — Live Demo label for Interiora Studio per spec */}
             {proj.id === '06' ? null : proj.links.preview ? (
               <a
                 href={proj.links.preview}
@@ -155,11 +154,11 @@ export default function WorkCard({
                 className="work__card-btn work__card-btn--preview"
                 onClick={isInProgress && onInProgress ? handleInProgressClick : undefined}
               >
-                {proj.id === '08' ? 'Live Demo →' : 'Live Preview →'}
+                Live Preview →
               </a>
             ) : (
               <button className="work__card-btn work__card-btn--disabled" onClick={handleInProgressClick}>
-                {proj.id === '08' ? 'Live Demo →' : 'Live Preview →'}
+                Live Preview →
               </button>
             )}
           </div>
