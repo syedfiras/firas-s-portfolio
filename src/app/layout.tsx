@@ -22,15 +22,15 @@ const SITE_NAME = 'Syed Firas Peerzada';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzada | Full Stack Developer — Former SDE Intern @ Dream Space Interiors (Open to Work)',
+    default: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
     template: '%s | Syed Firas Peerzada',
   },
   description:
-    'Portfolio of Syed Firas Peerzada — Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work. React Native, Next.js, Node.js.',
+    'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
   keywords: [
     'Syed Firas Peerzada',
     'full stack developer',
-    'open to work',
+    'SDE Intern',
     'frontend developer',
     'react native developer',
     'next.js developer',
@@ -48,24 +48,24 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzada | Full Stack Developer — Former SDE Intern @ Dream Space Interiors (Open to Work)',
+    title: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
     description:
-      'Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work. Building functional, high-performance digital products. Native mobile. Web interfaces. No fluff.',
+      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building functional, high-performance digital products — Interiora Studio, React Native, Next.js, Node.js.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
         secureUrl: `${SITE_URL}/og.png`,
         width: 1983,
         height: 793,
-        alt: 'Syed Firas Peerzada — Full Stack Developer (Open to Work)',
+        alt: 'Syed Firas Peerzada — SDE Intern @ Dream Space Interiors',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzada | Full Stack Developer (Open to Work)',
+    title: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
     description:
-      'Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work building functional digital products.',
+      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore — building Interiora Studio and functional digital products.',
     images: [`${SITE_URL}/og.png`],
   },
   robots: {
@@ -97,7 +97,7 @@ export default function RootLayout({
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          'Portfolio of Syed Firas Peerzada — Full Stack Developer, Former SDE Intern at Dream Space Interiors (Jul–Sep 2026), now open to work.',
+          'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present).',
         inLanguage: 'en',
       },
       {
@@ -105,7 +105,7 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: 'Full Stack Developer (Open to Work)',
+        jobTitle: 'SDE Intern @ Dream Space Interiors | Full Stack Developer',
         email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
         sameAs: [
@@ -120,7 +120,7 @@ export default function RootLayout({
           'Node.js',
           'UI Engineering',
         ],
-        alumniOf: {
+        worksFor: {
           '@type': 'Organization',
           name: 'Dream Space Interiors',
           address: {
@@ -129,7 +129,7 @@ export default function RootLayout({
             addressCountry: 'IN',
           },
         },
-        seeks: 'Full-time and freelance opportunities in full-stack web and mobile development',
+        description: 'SDE Intern at Dream Space Interiors (Jul 2026 – Present) — building Interiora Studio and internal tooling with React, Next.js, Node.js, and Supabase.',
       },
     ],
   };

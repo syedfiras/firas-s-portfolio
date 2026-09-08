@@ -37,10 +37,10 @@ export default function Contact({ s }: ContactProps) {
         </div>
         <div className="contact__avail">
           <div className="contact__avail-text">
-            OPEN TO NEW OPPORTUNITIES
+            CURRENTLY INTERNING @ DREAM SPACE INTERIORS
           </div>
           <div className="contact__avail-sub">
-            Former SDE Intern @ Dream Space (Jul–Sep 2026) — let&apos;s discuss what you&apos;re building.
+            SDE Intern — Bangalore (Jul 2026 – Present) — building Interiora Studio and internal tooling.
           </div>
         </div>
       </div>

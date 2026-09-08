@@ -51,15 +51,15 @@ export default function Identity({ s }: IdentityProps) {
             DECORATION&apos;S SAKE.
           </h3>
           <p className="identity__about-body">
-            I&apos;m Syed Firas Peerzada — a full stack developer and former
-            SDE Intern at Dream Space Interiors, Bangalore (Jul–Sep 2026). I
+            I&apos;m Syed Firas Peerzada — a full stack developer and SDE
+            Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). I
             build mobile applications and web systems that are fast, accessible,
-            and built to last. During my internship I built and shipped{" "}
+            and built to last. At Dream Space I built and shipped{" "}
             <strong>Interiora Studio</strong> — a production-ready interior design
             management platform with authentication, project management, and a
-            responsive Tailwind UI on Vercel. Every pixel is intentional. Every
-            component earns its place. I ship products people actually use. Now
-            open to full-time and freelance opportunities.
+            responsive Tailwind UI on Vercel — and I&apos;m currently extending
+            its features and internal tooling. Every pixel is intentional. Every
+            component earns its place. I ship products people actually use.
           </p>
           <div className="identity__about-tag" style={{ marginTop: 40 }}>
             // Extracurricular

@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
 export const FEATURED_PROJECTS: Project[] = PROJECTS.filter((p) => p.featured);
 
 export const EXPERIENCE: Experience[] = [
-  { year: 'Jul – Sep 2026', role: 'SDE Intern', company: 'Dream Space Interiors, Bangalore', type: 'Internship', desc: 'Built and scaled full-stack web applications end-to-end — frontend, backend, and database. Delivered Interiora Studio to production on Vercel with authentication, project management, and responsive UI. Now open to new opportunities.' },
+  { year: 'Jul 2026 – Present', role: 'SDE Intern', company: 'Dream Space Interiors, Bangalore', type: 'Internship', desc: 'Building and scaling full-stack web applications end-to-end — frontend, backend, and database. Shipped Interiora Studio to production on Vercel with authentication, project management, and responsive UI; currently extending platform features and internal tooling.' },
   { year: 'May - Jul 2026', role: 'Frontend Intern', company: 'Omnimate', type: 'Internship', desc: 'Contributed to modern frontend systems, UI architectures, and scalable components.' },
   { year: '2025', role: 'Web Development Intern', company: 'My Job Grow & IIT Hyderabad', type: 'Internship', desc: 'Focused on full-stack integration and responsive client interfaces.' },
   { year: 'Mar - Jun 2025', role: 'Frontend Intern', company: 'iTecz Solutions', type: 'Internship', desc: 'Developed mobile and web systems using Ionic and Angular.' },
