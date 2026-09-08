@@ -76,7 +76,7 @@ export default function Hero({ s }: HeroProps) {
               View Work →
             </a>
             <a
-              href="/resume.pdf"
+              href="/syedfiras.docx"
               target="_blank"
               rel="noopener noreferrer"
               className="hero__cta hero__cta--primary"
