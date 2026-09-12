@@ -17,7 +17,7 @@ export default function WorkCard({
   const isLive = proj.status === 'live';
   const isBadged = isInProgress || isPaused || isLive;
   const badgeText = isPaused ? 'Paused' : isInProgress ? 'In Progress' : isLive ? 'Live' : null;
-  const isFootballPrivate = proj.id === '05';
+  const isPrivateRepo = !proj.links.source && isLive;
 
   const handleInProgressClick = (e: React.MouseEvent) => {
     if (isInProgress && onInProgress) {
@@ -126,7 +126,7 @@ export default function WorkCard({
         {variant === 'projects' && (
           <div className="work__card-actions">
             {/* GitHub — show link if available; private repo handling; hide for live projects without source per spec */}
-            {isFootballPrivate ? (
+            {isPrivateRepo ? (
               <button className="work__card-btn work__card-btn--github" onClick={handlePrivateClick}>
                 GitHub →
               </button>
