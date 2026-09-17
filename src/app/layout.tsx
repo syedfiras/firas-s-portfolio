@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Bebas_Neue, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
+import AppLoader from '@/components/AppLoader';
 
 const bebas = Bebas_Neue({
   weight: '400',
@@ -142,7 +143,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <AppLoader>{children}</AppLoader>
+      </body>
     </html>
   );
 }

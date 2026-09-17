@@ -19,8 +19,8 @@ export const EXPERIENCE: Experience[] = [
   { year: 'Jul 2026 – Present', role: 'SDE Intern', company: 'Dream Space Interiors, Bangalore', type: 'Internship', desc: 'Building and scaling full-stack web applications end-to-end — frontend, backend, and database. Built and shipped Interiora Studio to production on Vercel with authentication, project management, and responsive UI while SDE Intern at Dream Space Interiors; currently extending platform features and internal tooling.' },
   { year: 'May - Jul 2026', role: 'Frontend Intern', company: 'Omnimate', type: 'Internship', desc: 'Contributed to modern frontend systems, UI architectures, and scalable components.' },
   { year: '2025', role: 'Web Development Intern', company: 'My Job Grow & IIT Hyderabad', type: 'Internship', desc: 'Focused on full-stack integration and responsive client interfaces.' },
-  { year: 'Mar - Jun 2025', role: 'Frontend Intern', company: 'iTecz Solutions', type: 'Internship', desc: 'Developed mobile and web systems using Ionic and Angular.' },
-  { year: '2024 - Present', role: 'Frontend & App Developer', company: 'Freelance', type: 'Freelance', desc: 'Building production-grade mobile applications and web interfaces for clients.' },
+  { year: 'Mar - Jun 2025', role: 'Frontend Intern', company: 'iTecz Solutions, Australia', type: 'Internship', desc: 'Built a School Management App and an Accounting System for an Australian company using Ionic and Angular — featuring student admissions, attendance and fee management, plus invoicing, ledger tracking and reporting with responsive, production-grade UI.' },
+  { year: '2024 - Present', role: 'Frontend & App Developer', company: 'Freelance', type: 'Freelance', desc: 'Shipped GymNet Solutions Portal — gym management platform for member tracking, work scheduling, automated billing and performance logs — and BIFA Football Club Manager — team management system for player tracking, match scheduling and club administration — as freelance React Native / Ionic + Node.js + Supabase builds, live in production.' },
 ];
 
 export const SKILLS: SkillCategory[] = [

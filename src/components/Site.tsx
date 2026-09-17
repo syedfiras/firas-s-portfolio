@@ -9,25 +9,11 @@ import Identity from './Identity';
 import Contact from './Contact';
 import Footer from './Footer';
 import GrainOverlay from './GrainOverlay';
-import Loader from './Loader';
 
 export default function Site() {
-  const [loading, setLoading] = useState(true);
   const [visible, setVisible] = useState<number[]>([0, 1, 6]);
 
   useEffect(() => {
-    if (sessionStorage.getItem('portfolio_loader_seen')) {
-      setLoading(false);
-    }
-  }, []);
-
-  const handleLoaderComplete = useCallback(() => {
-    sessionStorage.setItem('portfolio_loader_seen', '1');
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (loading) return;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,7 +28,7 @@ export default function Site() {
     );
     document.querySelectorAll('[data-index]').forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [loading]);
+  }, []);
 
   const s = useCallback(
     (index: number): string => (visible.includes(index) ? 'visible' : 'hidden'),
@@ -51,7 +37,6 @@ export default function Site() {
 
   return (
     <>
-      {loading && <Loader onComplete={handleLoaderComplete} />}
       <GrainOverlay />
       <Nav s={s} />
       <main>

@@ -28,7 +28,6 @@ export default function Hero({ s }: HeroProps) {
       </h1>
       <div className="hero__left">
         <div className="hero__avail">
-          <div className="hero__avail-bar" />
           <span className="hero__avail-text">
             SDE Intern @ Dream Space Interiors — Bangalore (Jul 2026 – Present)
           </span>
