@@ -16,7 +16,7 @@ export default function Contact({ s }: ContactProps) {
           <span className="contact__headline-hollow">GOOD.</span>
         </h2>
         <a href="mailto:workwithfiras@gmail.com" className="contact__cta-btn">
-          Let&apos;s Talk →
+          Let&apos;s  Talk →
         </a>
       </div>
 
