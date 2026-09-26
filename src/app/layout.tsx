@@ -1,24 +1,22 @@
-import type { Metadata } from 'next';
-import { Bebas_Neue, IBM_Plex_Mono } from 'next/font/google';
+import type { Metadata, Viewport } from 'next';
+import { Manrope } from 'next/font/google';
 import './globals.css';
-import AppLoader from '@/components/AppLoader';
 
-const bebas = Bebas_Neue({
-  weight: '400',
+const manrope = Manrope({
+  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-bebas',
-});
-
-const plexMono = IBM_Plex_Mono({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-plex',
+  variable: '--font-manrope',
 });
 
 const SITE_URL = 'https://www.syedfiras.dev';
 const SITE_NAME = 'Syed Firas Peerzada';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#0a0a0b',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -27,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | Syed Firas Peerzada',
   },
   description:
-    'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
+    'Portfolio of Syed Firas Peerzada — Full Stack Developer & SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
   keywords: [
     'Syed Firas Peerzada',
     'full stack developer',
@@ -41,9 +39,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Syed Firas Peerzada', url: SITE_URL }],
   creator: 'Syed Firas Peerzada',
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -51,22 +47,21 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
     description:
-      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building functional, high-performance digital products — Interiora Studio, React Native, Next.js, Node.js.',
+      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building Interiora Studio — React Native, Next.js, Node.js, Supabase.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
-        secureUrl: `${SITE_URL}/og.png`,
-        width: 1983,
-        height: 793,
-        alt: 'Syed Firas Peerzada — SDE Intern @ Dream Space Interiors',
+        width: 1200,
+        height: 630,
+        alt: 'Syed Firas Peerzada — Full Stack Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
+    title: 'Syed Firas Peerzada | Full Stack Developer',
     description:
-      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore — building Interiora Studio and functional digital products.',
+      'SDE Intern at Dream Space Interiors — building Interiora Studio and functional digital products.',
     images: [`${SITE_URL}/og.png`],
   },
   robots: {
@@ -79,16 +74,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/favicon.png',
-  },
+  icons: { icon: '/favicon.png' },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -98,7 +89,7 @@ export default function RootLayout({
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present).',
+          'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors.',
         inLanguage: 'en',
       },
       {
@@ -113,14 +104,7 @@ export default function RootLayout({
           'https://github.com/syedfiras',
           'https://linkedin.com/in/syedfiras7',
         ],
-        knowsAbout: [
-          'React Native',
-          'Next.js',
-          'React',
-          'TypeScript',
-          'Node.js',
-          'UI Engineering',
-        ],
+        knowsAbout: ['React Native', 'Next.js', 'React', 'TypeScript', 'Node.js', 'Supabase'],
         worksFor: {
           '@type': 'Organization',
           name: 'Dream Space Interiors',
@@ -130,22 +114,21 @@ export default function RootLayout({
             addressCountry: 'IN',
           },
         },
-        description: 'SDE Intern at Dream Space Interiors (Jul 2026 – Present) — building Interiora Studio and internal tooling with React, Next.js, Node.js, and Supabase.',
+        description:
+          'SDE Intern at Dream Space Interiors (Jul 2026 – Present) — building Interiora Studio and internal tooling.',
       },
     ],
   };
 
   return (
-    <html lang="en" className={`${bebas.variable} ${plexMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={manrope.variable} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
-        <AppLoader>{children}</AppLoader>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

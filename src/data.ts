@@ -15,6 +15,21 @@ export const PROJECTS: Project[] = [
 
 export const FEATURED_PROJECTS: Project[] = PROJECTS.filter((p) => p.featured);
 
+// URL slug ↔ project id mapping (single source of truth for /projects/[slug])
+export const SLUG_TO_PROJECT_ID: Record<string, string> = {
+  'bifa-football-club-manager': '01',
+  'auction-football-system': '02',
+  'gymnet-solutions-portal': '03',
+  'ijestm-journal-platform': '04',
+  'footballcoach-ai': '05',
+  'sahaya': '06',
+  'qr-restaurant': '07',
+};
+
+export const PROJECT_ID_TO_SLUG: Record<string, string> = Object.fromEntries(
+  Object.entries(SLUG_TO_PROJECT_ID).map(([slug, id]) => [id, slug]),
+);
+
 export const EXPERIENCE: Experience[] = [
   { year: 'Jul 2026 – Present', role: 'SDE Intern', company: 'Dream Space Interiors, Bangalore', type: 'Internship', desc: 'Building and scaling full-stack web applications end-to-end — frontend, backend, and database. Built and shipped Interiora Studio to production on Vercel with authentication, project management, and responsive UI while SDE Intern at Dream Space Interiors; currently extending platform features and internal tooling.' },
   { year: 'May - Jul 2026', role: 'Frontend Intern', company: 'Omnimate', type: 'Internship', desc: 'Contributed to modern frontend systems, UI architectures, and scalable components.' },

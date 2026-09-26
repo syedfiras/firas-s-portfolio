@@ -1,31 +1,42 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { PROJECTS } from '@/data';
+import Nav from '@/components/ProjectNav';
 import ProjectsGrid from '@/components/ProjectsGrid';
+import { PROJECTS } from '@/data';
 
 export const metadata: Metadata = {
   title: 'All Projects',
-  description: 'All projects by Syed Firas Peerzada — BIFA, GymNet, IJESTM, Auction Football, FootballCoachAI and more.',
+  description:
+    'All projects by Syed Firas Peerzada — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI, Sahaya, QR Restaurant and more.',
 };
 
 export default function ProjectsPage() {
   return (
-    <main className="projects">
-      <div className="projects__header">
-        <div className="section-header projects__section-header">
-          <h1 className="section-header__title">All Projects</h1>
-          <div className="section-header__rule" />
-          <span className="section-header__count">Missions [{String(PROJECTS.length).padStart(2, '0')}]</span>
-          <Link href="/#work" className="section-header__action">
-            ← Back to Home
-          </Link>
-        </div>
-        <p className="projects__intro">
-          A complete archive of builds — featured work plus experiments and in-progress explorations.
-        </p>
-      </div>
+    <>
+      <Nav />
+      <div className="noise" aria-hidden />
+      <main className="portfolio-root">
+        <div className="container">
+          <div className="proj-index-hero">
+            <div className="proj-eyebrow">
+              Archive — {String(PROJECTS.length).padStart(2, '0')} Projects
+            </div>
+            <h1 className="proj-index-title">All Projects</h1>
+            <p className="proj-index-intro">
+              A complete archive of builds — featured work plus experiments and
+              in-progress explorations. Select any project to open its case study.
+            </p>
+          </div>
 
-      <ProjectsGrid />
-    </main>
+          <ProjectsGrid />
+        </div>
+
+        <footer className="footer">
+          <div className="container footer-inner">
+            <span>© {new Date().getFullYear()} Syed Firas Peerzada</span>
+            <span>Full Stack Developer · Karnataka, India</span>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 }
