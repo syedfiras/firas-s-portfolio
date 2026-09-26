@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 const SITE_URL = 'https://www.syedfiras.dev';
-const SITE_NAME = 'Syed Firas Peerzada';
+const SITE_NAME = 'Syed Firas Peerzade';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -21,13 +21,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
-    template: '%s | Syed Firas Peerzada',
+    default: 'Syed Firas Peerzade | Full Stack Developer — SDE Intern @ Dream Space Interiors',
+    template: '%s | Syed Firas Peerzade',
   },
   description:
-    'Portfolio of Syed Firas Peerzada — Full Stack Developer & SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
+    'Portfolio of Syed Firas Peerzade — Full Stack Developer & SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
   keywords: [
-    'Syed Firas Peerzada',
+    'Syed Firas Peerzade',
     'full stack developer',
     'SDE Intern',
     'frontend developer',
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
     'mobile app developer',
     'dream space interiors',
   ],
-  authors: [{ name: 'Syed Firas Peerzada', url: SITE_URL }],
-  creator: 'Syed Firas Peerzada',
+  authors: [{ name: 'Syed Firas Peerzade', url: SITE_URL }],
+  creator: 'Syed Firas Peerzade',
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzada | Full Stack Developer — SDE Intern @ Dream Space Interiors',
+    title: 'Syed Firas Peerzade | Full Stack Developer — SDE Intern @ Dream Space Interiors',
     description:
       'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building Interiora Studio — React Native, Next.js, Node.js, Supabase.',
     images: [
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og.png`,
         width: 1200,
         height: 630,
-        alt: 'Syed Firas Peerzada — Full Stack Developer',
+        alt: 'Syed Firas Peerzade — Full Stack Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzada | Full Stack Developer',
+    title: 'Syed Firas Peerzade | Full Stack Developer',
     description:
       'SDE Intern at Dream Space Interiors — building Interiora Studio and functional digital products.',
     images: [`${SITE_URL}/og.png`],
@@ -89,7 +89,7 @@ export default function RootLayout({
         url: SITE_URL,
         name: SITE_NAME,
         description:
-          'Portfolio of Syed Firas Peerzada — Full Stack Developer, SDE Intern at Dream Space Interiors.',
+          'Portfolio of Syed Firas Peerzade — Full Stack Developer, SDE Intern at Dream Space Interiors.',
         inLanguage: 'en',
       },
       {

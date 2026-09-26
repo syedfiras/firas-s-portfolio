@@ -14,7 +14,7 @@ export default function Nav({ s }: NavProps) {
   return (
     <nav className={`nav ${s(0)}`} data-index={0}>
       <a href="#hero" className="nav__logo" onClick={closeMenu}>
-        Syed Firas Peerzada
+        Syed Firas Peerzade
         <span className="nav__cursor" />
       </a>
 

@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 export default function BentoPortfolio() {
   const container = useRef(null);
-  
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -26,7 +26,7 @@ export default function BentoPortfolio() {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-    
+
     return () => {
       lenis.destroy();
     };
@@ -34,11 +34,11 @@ export default function BentoPortfolio() {
 
   // Use a local time formatted string
   const [time, setTime] = useState<string>('');
-  
+
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      setTime(now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute:'2-digit' }));
+      setTime(now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' }));
     };
     updateTime();
     const interval = setInterval(updateTime, 60000);
@@ -48,7 +48,7 @@ export default function BentoPortfolio() {
   return (
     <>
       <div className="noise-overlay" />
-      
+
       {/* Navbar */}
       <nav className="nav">
         <div className="container nav-content">
@@ -64,9 +64,9 @@ export default function BentoPortfolio() {
 
       <main className="container" ref={container}>
         <div className="bento-grid">
-          
+
           {/* HERO CARD - Large 2x2 or 3x2 on desktop depending on layout */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -75,11 +75,11 @@ export default function BentoPortfolio() {
             <div className="card-content justify-between">
               <div>
                 <h1 className="text-gradient" style={{ fontSize: '3rem', fontWeight: 800, lineHeight: 1, marginBottom: '1rem', textTransform: 'uppercase' }}>
-                  Syed Firas<br />Peerzada
+                  Syed Firas<br />Peerzade
                 </h1>
                 <p className="bento-subtitle" style={{ fontSize: '1.25rem', letterSpacing: '0.05em' }}>FULL STACK DEVELOPER</p>
               </div>
-              
+
               <div>
                 <div style={{ fontSize: '4.5rem', fontWeight: 800, lineHeight: 1.1, letterSpacing: '-0.02em' }}>
                   BUILD<br />CREATE<br />IMPACT
@@ -93,7 +93,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* PROFILE / PHOTO CARD */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -106,15 +106,15 @@ export default function BentoPortfolio() {
               <div className="flex justify-between items-end w-full">
                 <div className="badge"><span className="status-dot"></span> ONLINE</div>
                 <div className="text-right">
-                  <div className="text-sm font-semibold flex items-center justify-end gap-1"><MapPin size={12}/> KARNATAKA, INDIA</div>
-                  <div className="text-xs text-secondary mt-1 flex items-center justify-end gap-1"><Clock size={12}/> {time} LOCAL TIME</div>
+                  <div className="text-sm font-semibold flex items-center justify-end gap-1"><MapPin size={12} /> KARNATAKA, INDIA</div>
+                  <div className="text-xs text-secondary mt-1 flex items-center justify-end gap-1"><Clock size={12} /> {time} LOCAL TIME</div>
                 </div>
               </div>
             </div>
           </motion.div>
 
           {/* STATS CARD */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -133,7 +133,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* ABOUT / IDENTITY CARD */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -151,7 +151,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* FEATURED PROJECT: BIFA */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -165,7 +165,7 @@ export default function BentoPortfolio() {
                 </div>
                 <ArrowRight className="text-secondary" />
               </div>
-              
+
               <div className="mt-auto">
                 <p className="text-sm text-secondary mb-4 max-w-md">
                   A comprehensive team management system for BIFA Football Club, streamlining player tracking, match scheduling, and club administration.
@@ -179,9 +179,9 @@ export default function BentoPortfolio() {
               </div>
             </div>
           </motion.div>
-          
+
           {/* EXPERIENCE CARD */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -202,37 +202,37 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* TOOLKIT MARQUEE CARD */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="bento-card col-span-2 row-span-1 p-0 justify-center overflow-hidden"
           >
-             <div className="marquee-container w-full h-full">
-                <div className="marquee-content">
-                  <span className="marquee-item active">REACT</span>
-                  <span className="marquee-item">REACT NATIVE</span>
-                  <span className="marquee-item active">NEXT.JS</span>
-                  <span className="marquee-item">TYPESCRIPT</span>
-                  <span className="marquee-item active">NODE.JS</span>
-                  <span className="marquee-item">SUPABASE</span>
-                  <span className="marquee-item active">PYTHON</span>
-                  <span className="marquee-item">MONGODB</span>
-                  {/* Repeat for seamless effect */}
-                  <span className="marquee-item active">REACT</span>
-                  <span className="marquee-item">REACT NATIVE</span>
-                  <span className="marquee-item active">NEXT.JS</span>
-                  <span className="marquee-item">TYPESCRIPT</span>
-                  <span className="marquee-item active">NODE.JS</span>
-                  <span className="marquee-item">SUPABASE</span>
-                  <span className="marquee-item active">PYTHON</span>
-                  <span className="marquee-item">MONGODB</span>
-                </div>
-             </div>
+            <div className="marquee-container w-full h-full">
+              <div className="marquee-content">
+                <span className="marquee-item active">REACT</span>
+                <span className="marquee-item">REACT NATIVE</span>
+                <span className="marquee-item active">NEXT.JS</span>
+                <span className="marquee-item">TYPESCRIPT</span>
+                <span className="marquee-item active">NODE.JS</span>
+                <span className="marquee-item">SUPABASE</span>
+                <span className="marquee-item active">PYTHON</span>
+                <span className="marquee-item">MONGODB</span>
+                {/* Repeat for seamless effect */}
+                <span className="marquee-item active">REACT</span>
+                <span className="marquee-item">REACT NATIVE</span>
+                <span className="marquee-item active">NEXT.JS</span>
+                <span className="marquee-item">TYPESCRIPT</span>
+                <span className="marquee-item active">NODE.JS</span>
+                <span className="marquee-item">SUPABASE</span>
+                <span className="marquee-item active">PYTHON</span>
+                <span className="marquee-item">MONGODB</span>
+              </div>
+            </div>
           </motion.div>
 
           {/* PROJECT 03: GYMNET */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -259,7 +259,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* PROJECT 05: FOOTBALLCOACH AI */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -287,7 +287,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* PROJECT 04: IJESTM */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -307,7 +307,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* EXTRACURRICULAR CARDS */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -319,7 +319,7 @@ export default function BentoPortfolio() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -331,7 +331,7 @@ export default function BentoPortfolio() {
             </div>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -344,7 +344,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* GITHUB ACTIVITY */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -359,7 +359,7 @@ export default function BentoPortfolio() {
           </motion.div>
 
           {/* CONTACT CTA */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

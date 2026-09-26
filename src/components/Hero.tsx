@@ -24,7 +24,7 @@ export default function Hero({ s }: HeroProps) {
   return (
     <section className={`hero ${s(1)}`} id="hero" data-index={1}>
       <h1 className="sr-only">
-        Syed Firas Peerzada — Full Stack Developer — SDE Intern @ Dream Space Interiors, Bangalore (Jul 2026 – Present)
+        Syed Firas Peerzade — Full Stack Developer — SDE Intern @ Dream Space Interiors, Bangalore (Jul 2026 – Present)
       </h1>
       <div className="hero__left">
         <div className="hero__avail">
@@ -90,7 +90,7 @@ export default function Hero({ s }: HeroProps) {
         <div className="hero__photo">
           <img
             src={profilePhoto.src}
-            alt="Syed Firas Peerzada Peerzada"
+            alt="Syed Firas Peerzade Peerzade"
             className="hero__photo-img"
           />
         </div>
@@ -99,7 +99,7 @@ export default function Hero({ s }: HeroProps) {
             &quot;Design is not just what it looks like and feels like. Design is
             how it works.&quot;
           </blockquote>
-          <div className="hero__quote-author">— Syed Firas Peerzada</div>
+          <div className="hero__quote-author">— Syed Firas Peerzade</div>
         </div>
         <div className="hero__stats-row">
           <div className="hero__stat">

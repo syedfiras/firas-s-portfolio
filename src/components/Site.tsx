@@ -11,7 +11,7 @@ import { PROJECTS } from '@/data';
 
 // ─── Animation helpers ───────────────────────────────────────
 const fadeUp: Variants = {
-  hidden:  { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20 },
   visible: (delay = 0) => ({
     opacity: 1,
     y: 0,
@@ -45,8 +45,8 @@ function Nav() {
       <div className="container nav-inner">
         <a href="#top" className="nav-logo" onClick={closeMenu}>Syed Firas</a>
         <div className="nav-links">
-          <a href="#work"    className="nav-link">Work</a>
-          <a href="#about"   className="nav-link">About</a>
+          <a href="#work" className="nav-link">Work</a>
+          <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
           <a
             href="/resume.pdf"
@@ -138,7 +138,7 @@ function HeroCard({ ready }: { ready: boolean }) {
         <div className="hero-headline">
           <span>Syed</span>
           <span>Firas</span>
-          <span className="hl-dim">Peerzada</span>
+          <span className="hl-dim">Peerzade</span>
         </div>
 
         {/* Motto */}
@@ -173,7 +173,7 @@ function ProfileCard({ ready }: { ready: boolean }) {
     >
       <Image
         src="/profile.png"
-        alt="Syed Firas Peerzada"
+        alt="Syed Firas Peerzade"
         fill
         className="profile-img"
         style={{ objectFit: 'cover', objectPosition: 'center top' }}
@@ -183,7 +183,7 @@ function ProfileCard({ ready }: { ready: boolean }) {
       <div className="profile-overlay" />
       <div className="profile-content">
         <div style={{ fontSize: '0.78rem', fontWeight: 600, color: 'rgba(255,255,255,0.7)' }}>
-          Syed Firas Peerzada
+          Syed Firas Peerzade
         </div>
       </div>
     </motion.div>
@@ -279,7 +279,7 @@ function AboutCard() {
         I build things that work.<br />No decoration for decoration's sake.
       </h2>
       <p className="about-body" style={{ marginBottom: '1rem' }}>
-        I'm <strong>Syed Firas Peerzada</strong> — a full stack developer and{' '}
+        I'm <strong>Syed Firas Peerzade</strong> — a full stack developer and{' '}
         <strong>SDE Intern at Dream Space Interiors</strong>, Bangalore. I build mobile
         applications and web systems that are fast, accessible, and built to last.
       </p>
@@ -382,7 +382,7 @@ function ExperienceCard() {
         {[
           { period: 'May – Jul 2026', role: 'Frontend Intern', co: 'Omnimate' },
           { period: 'Mar – Jun 2025', role: 'Frontend Intern', co: 'iTecz Solutions, Australia' },
-          { period: '2025',           role: 'Web Dev Intern',  co: 'My Job Grow & IIT Hyderabad' },
+          { period: '2025', role: 'Web Dev Intern', co: 'My Job Grow & IIT Hyderabad' },
         ].map(({ period, role, co }) => (
           <div key={co} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
             <div>
@@ -641,7 +641,7 @@ export default function Site() {
     const move = (e: MouseEvent) => {
       if (glowRef.current) {
         glowRef.current.style.left = `${e.clientX}px`;
-        glowRef.current.style.top  = `${e.clientY}px`;
+        glowRef.current.style.top = `${e.clientY}px`;
       }
     };
     window.addEventListener('mousemove', move, { passive: true });
@@ -655,8 +655,8 @@ export default function Site() {
     cards.forEach((card) => {
       const fn = (e: MouseEvent) => {
         const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width)  * 100;
-        const y = ((e.clientY - rect.top)  / rect.height) * 100;
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
         card.style.setProperty('--mx', `${x}%`);
         card.style.setProperty('--my', `${y}%`);
       };
@@ -767,7 +767,7 @@ export default function Site() {
         {/* Footer */}
         <footer className="footer">
           <div className="container footer-inner">
-            <span>© {new Date().getFullYear()} Syed Firas Peerzada</span>
+            <span>© {new Date().getFullYear()} Syed Firas Peerzade</span>
             <span>Full Stack Developer · Karnataka, India</span>
           </div>
         </footer>

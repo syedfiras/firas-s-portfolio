@@ -45,41 +45,41 @@ export default function Identity({ s }: IdentityProps) {
       {activeTab === 'ABOUT' && (
         <div className="identity__about">
           <div className="identity__about-copy">
-          <div className="identity__about-tag">// About Me</div>
-          <h3 className="identity__about-headline">
-            I BUILD THINGS THAT <span>WORK.</span> NO DECORATION FOR
-            DECORATION&apos;S SAKE.
-          </h3>
-          <p className="identity__about-body">
-            I&apos;m Syed Firas Peerzada — a full stack developer and SDE
-            Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). I
-            build mobile applications and web systems that are fast, accessible,
-            and built to last. At Dream Space I built and shipped{" "}
-            <strong>Interiora Studio</strong> — a production-ready interior design
-            management platform with authentication, project management, and a
-            responsive Tailwind UI on Vercel — and I&apos;m currently extending
-            its features and internal tooling. Every pixel is intentional. Every
-            component earns its place. I ship products people actually use.
-          </p>
-          <div className="identity__about-tag" style={{ marginTop: 40 }}>
+            <div className="identity__about-tag">// About Me</div>
+            <h3 className="identity__about-headline">
+              I BUILD THINGS THAT <span>WORK.</span> NO DECORATION FOR
+              DECORATION&apos;S SAKE.
+            </h3>
+            <p className="identity__about-body">
+              I&apos;m Syed Firas Peerzade — a full stack developer and SDE
+              Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). I
+              build mobile applications and web systems that are fast, accessible,
+              and built to last. At Dream Space I built and shipped{" "}
+              <strong>Interiora Studio</strong> — a production-ready interior design
+              management platform with authentication, project management, and a
+              responsive Tailwind UI on Vercel — and I&apos;m currently extending
+              its features and internal tooling. Every pixel is intentional. Every
+              component earns its place. I ship products people actually use.
+            </p>
+            <div className="identity__about-tag" style={{ marginTop: 40 }}>
             // Extracurricular
-          </div>
-          <ul className="identity__extra-list">
-            <li className="identity__extra-item">
-              <strong>AIFF Certified Referee</strong> — Certified by the All
-              India Football Federation, reflecting sharp decision-making, rule
-              mastery, and composure under pressure.
-            </li>
-            <li className="identity__extra-item">
-              <strong>4× State Level Football Player</strong> — Represented at
-              the state level in football across four tournaments.
-            </li>
-            <li className="identity__extra-item">
-              <strong>6+ Hackathons</strong> — Attended 6+ national hackathons,
-              building end-to-end prototypes under tight deadlines, collaborating
-              in cross-functional teams, and shipping functional demos.
-            </li>
-          </ul>
+            </div>
+            <ul className="identity__extra-list">
+              <li className="identity__extra-item">
+                <strong>AIFF Certified Referee</strong> — Certified by the All
+                India Football Federation, reflecting sharp decision-making, rule
+                mastery, and composure under pressure.
+              </li>
+              <li className="identity__extra-item">
+                <strong>4× State Level Football Player</strong> — Represented at
+                the state level in football across four tournaments.
+              </li>
+              <li className="identity__extra-item">
+                <strong>6+ Hackathons</strong> — Attended 6+ national hackathons,
+                building end-to-end prototypes under tight deadlines, collaborating
+                in cross-functional teams, and shipping functional demos.
+              </li>
+            </ul>
           </div>
           <div className="identity__contributions">
             <div className="identity__about-tag">GitHub contributions</div>

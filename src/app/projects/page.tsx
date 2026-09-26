@@ -6,7 +6,7 @@ import { PROJECTS } from '@/data';
 export const metadata: Metadata = {
   title: 'All Projects',
   description:
-    'All projects by Syed Firas Peerzada — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI, Sahaya, QR Restaurant and more.',
+    'All projects by Syed Firas Peerzade — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI, Sahaya, QR Restaurant and more.',
 };
 
 export default function ProjectsPage() {
@@ -32,7 +32,7 @@ export default function ProjectsPage() {
 
         <footer className="footer">
           <div className="container footer-inner">
-            <span>© {new Date().getFullYear()} Syed Firas Peerzada</span>
+            <span>© {new Date().getFullYear()} Syed Firas Peerzade</span>
             <span>Full Stack Developer · Karnataka, India</span>
           </div>
         </footer>
