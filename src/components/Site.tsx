@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X } from 'lucide-react';
+import { ArrowRight, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X } from 'lucide-react';
 import { Github, Linkedin } from './icons';
 import Loader from './Loader';
 import { PROJECTS } from '@/data';
@@ -191,20 +191,6 @@ function ProfileCard({ ready }: { ready: boolean }) {
 }
 
 function StatusCard({ ready }: { ready: boolean }) {
-  const [time, setTime] = useState('');
-  useEffect(() => {
-    const fmt = () =>
-      new Date().toLocaleTimeString('en-IN', {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: true,
-      });
-    setTime(fmt());
-    const id = setInterval(() => setTime(fmt()), 15000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
     <motion.div
       className="card card-status card-p"
@@ -214,16 +200,28 @@ function StatusCard({ ready }: { ready: boolean }) {
       custom={0.15}
       style={{ display: 'flex', flexDirection: 'column' }}
     >
-      <div className="status-indicator">
-        <span className="status-dot" />
-        <span className="status-label">Online</span>
+      <div className="status-top">
+        <div className="status-indicator" style={{ marginBottom: 0 }}>
+          <span className="status-dot" />
+          <span className="status-label">Online</span>
+        </div>
+        <span className="now-label">Now</span>
       </div>
-      <div className="status-location">
-        <MapPin size={13} style={{ color: 'var(--text-2)', flexShrink: 0 }} />
-        Karnataka, India
+      <div className="now-eyebrow">Currently building</div>
+      <div className="now-title">Interiora Studio</div>
+      <p className="now-desc">
+        Interior design management platform — frontend, backend &amp; database at Dream Space Interiors.
+      </p>
+      <div className="now-footer">
+        <div className="tech-tags">
+          <span className="tech-tag">Next.js</span>
+          <span className="tech-tag">Supabase</span>
+          <span className="tech-tag">Tailwind</span>
+        </div>
+        <a href="#work" className="now-link">
+          See work <ArrowRight size={12} />
+        </a>
       </div>
-      <div className="status-time">IST timezone</div>
-      <div className="clock-large">{time}</div>
     </motion.div>
   );
 }
@@ -723,9 +721,9 @@ export default function Site() {
               rowClass="g-r4"
               delay={0.1}
             />
-            {/* BIFA — wide */}
+            {/* FootballCoach AI — wide */}
             <WorkCard
-              project={PROJECTS[0]}
+              project={PROJECTS[4]}
               colClass="g-c9"
               rowClass="g-r3"
               delay={0.04}
