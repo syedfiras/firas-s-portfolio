@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArrowRight, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X } from 'lucide-react';
 import { Github, Linkedin } from './icons';
 import Loader from './Loader';
+import ContributionsCard from './GitHubContributions';
 import { PROJECTS } from '@/data';
 
 // ─── Animation helpers ───────────────────────────────────────
@@ -755,6 +756,10 @@ export default function Site() {
             <Strip label="Beyond the Screen" />
             <ExtrasSection />
             <GitHubCard />
+
+            {/* ── Open Source Activity ── */}
+            <Strip label="Open Source Activity" />
+            <ContributionsCard />
 
             {/* ── Contact ── */}
             <ContactCard />

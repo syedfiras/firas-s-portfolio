@@ -1057,6 +1057,118 @@ img, video { display: block; max-width: 100%; }
   color: var(--text-1);
 }
 
+/* ─── Contributions Card (GitHub heatmap) ─── */
+.card-contrib {
+  grid-column: span 12;
+  cursor: default;
+}
+.contrib-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.contrib-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 0.6rem;
+}
+.contrib-title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--text-1);
+  margin-bottom: 0.4rem;
+}
+.contrib-sub {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--text-2);
+  max-width: 52ch;
+}
+.contrib-years {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.contrib-year-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 99px;
+  border: 1px solid var(--border-2);
+  background: var(--surface-1);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.contrib-year-btn:hover {
+  background: var(--surface-2);
+  color: var(--text-1);
+}
+.contrib-year-btn.active {
+  background: var(--text-1);
+  border-color: transparent;
+  color: var(--bg);
+}
+.contrib-scroll {
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+.contrib-scroll article {
+  min-width: 720px;
+  width: max-content;
+  max-width: 100%;
+}
+.contrib-scroll text {
+  fill: var(--text-3) !important;
+  font-family: var(--font) !important;
+}
+.contrib-skeleton {
+  min-width: 720px;
+  width: max-content;
+  max-width: 100%;
+  height: 140px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, var(--surface-1) 25%, var(--surface-2) 50%, var(--surface-1) 75%);
+  background-size: 200% 100%;
+  animation: contrib-shimmer 1.4s ease-in-out infinite;
+}
+@keyframes contrib-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+.contrib-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.contrib-foot .github-link-pill {
+  margin-top: 0;
+}
+.contrib-note {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+}
+
 /* ─── Contact CTA ─── */
 .card-contact {
   grid-column: span 12;
@@ -1199,6 +1311,7 @@ img, video { display: block; max-width: 100%; }
   .card-toolkit { grid-column: span 8; grid-row: span 2; }
   .card-extra  { grid-column: span 2; }
   .card-github { grid-column: span 2; }
+  .card-contrib { grid-column: span 8; }
   .card-contact { grid-column: span 8; }
   .strip       { grid-column: span 8; }
   .g-c12       { grid-column: span 8; }
@@ -1241,6 +1354,7 @@ img, video { display: block; max-width: 100%; }
   .card-toolkit { min-height: 180px; }
   .card-extra  { min-height: 200px; }
   .card-github { min-height: 180px; }
+  .card-contrib { min-height: 260px; }
   .card-contact { min-height: 280px; }
 
   /* Floating nav → compact bar with a hamburger */
@@ -1293,7 +1407,10 @@ img, video { display: block; max-width: 100%; }
   .card-exp { min-height: 320px; }
   .card-toolkit { min-height: 160px; }
   .card-extra { min-height: 180px; }
+  .card-contrib { min-height: 240px; }
   .card-contact { min-height: 260px; }
+  .contrib-head { flex-direction: column; align-items: flex-start; }
+  .contrib-foot { flex-direction: column; align-items: flex-start; }
 
   /* Type scale */
   .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.1em; margin-bottom: 1.25rem; }

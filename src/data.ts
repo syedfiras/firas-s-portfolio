@@ -66,3 +66,5 @@ export const CONTACT_LINKS: ContactLink[] = [
   { label: 'GITHUB', value: 'github.com/syedfiras', href: 'https://github.com/syedfiras' },
   { label: 'LINKEDIN', value: 'linkedin.com/in/syedfiras7', href: 'https://linkedin.com/in/syedfiras7' },
 ];
+
+export const GITHUB_USERNAME = 'syedfiras';
