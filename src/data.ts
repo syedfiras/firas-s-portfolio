@@ -85,6 +85,17 @@ export const EDUCATION: Education[] = [
   { degree: 'B.Tech — Computer Science', school: 'AITM · Class of 2028', period: '2024 — 2028', desc: 'CS undergraduate building production systems alongside coursework — journal platforms, AI tools, and mobile apps.', highlights: ['IJESTM Journal Platform', 'AI & ML Coursework', 'Hackathons'] },
 ];
 
+export interface AboutSnapshot { label: string; value: string; }
+
+export const ABOUT_SNAPSHOT: AboutSnapshot[] = [
+  { label: 'Based in', value: 'Karnataka, India' },
+  { label: 'Education', value: 'B.Tech CS · AITM ’28' },
+  { label: 'Currently', value: 'SDE Intern @ Dream Space Interiors' },
+  { label: 'Focus', value: 'Mobile · Web · Backend · AI' },
+  { label: 'Experience', value: '3+ yrs · 20+ apps shipped' },
+  { label: 'Availability', value: 'Open to freelance & projects' },
+];
+
 export const CONTACT_LINKS: ContactLink[] = [
   { label: 'EMAIL', value: 'workwithfiras@gmail.com', href: 'mailto:workwithfiras@gmail.com' },
   { label: 'GITHUB', value: 'github.com/syedfiras', href: 'https://github.com/syedfiras' },

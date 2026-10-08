@@ -8,7 +8,7 @@ import { ArrowRight, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X, Smartphone,
 import { Github, Linkedin } from './icons';
 import Loader from './Loader';
 import ContributionsCard from './GitHubContributions';
-import { PROJECTS, SERVICES, CERTIFICATIONS, EDUCATION } from '@/data';
+import { PROJECTS, SERVICES, CERTIFICATIONS, EDUCATION, ABOUT_SNAPSHOT } from '@/data';
 
 // ─── Animation helpers ───────────────────────────────────────
 const fadeUp: Variants = {
@@ -294,6 +294,14 @@ function AboutCard() {
         Every pixel is intentional. Every component earns its place.
         I ship products people actually use.
       </p>
+      <div className="about-facts">
+        {ABOUT_SNAPSHOT.map((f) => (
+          <div key={f.label} className="about-fact">
+            <span className="about-fact-label">{f.label}</span>
+            <span className="about-fact-value">{f.value}</span>
+          </div>
+        ))}
+      </div>
     </motion.div>
   );
 }
