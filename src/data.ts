@@ -2,6 +2,9 @@ export interface Project { id: string; type: string; title: string; image: strin
 export interface Experience { year: string; role: string; company: string; type: string; desc: string; }
 export interface SkillCategory { category: string; items: string[]; ghost: string; }
 export interface ContactLink { label: string; value: string; href: string; }
+export interface Service { icon: string; title: string; desc: string; tags: string[]; }
+export interface Certification { title: string; issuer: string; year: string; credentialId?: string; url?: string; skills: string[]; }
+export interface Education { degree: string; school: string; period: string; desc: string; highlights: string[]; }
 
 export const PROJECTS: Project[] = [
   { id: '01', type: 'MOBILE & WEB', title: 'BIFA Football Club Manager', image: 'bifa.png', desc: 'A comprehensive team management system for BIFA Football Club, streamlining player tracking, match scheduling, and club administration.', metrics: [], stack: ['React Native', 'Node.js', 'NativeWind', 'Supabase'], links: { source: 'https://github.com/syedfiras/bifa', preview: 'https://bifa-registration-portal.netlify.app/' }, featured: true, status: 'live' },
@@ -60,6 +63,27 @@ export const SKILLS: SkillCategory[] = [
 ];
 
 export const TICKER_ITEMS = ['Mobile Apps', 'Web Interfaces', 'Machine Learning', 'PyTorch', 'Python', 'Frontend Systems', 'API Integration', 'Performance'];
+
+export const SERVICES: Service[] = [
+  { icon: 'smartphone', title: 'Mobile App Development', desc: 'Cross-platform iOS & Android apps that feel native — offline-first, fast, and store-ready.', tags: ['React Native', 'Expo', 'NativeWind'] },
+  { icon: 'globe', title: 'Web App Development', desc: 'Performant, SEO-friendly web apps from landing pages to dashboards and journal platforms.', tags: ['Next.js', 'React', 'TypeScript'] },
+  { icon: 'server', title: 'Backend & APIs', desc: 'Auth, databases, real-time subscriptions and payments — architecture that scales.', tags: ['Node.js', 'Supabase', 'Express'] },
+  { icon: 'layout', title: 'UI / Frontend Systems', desc: 'Design systems and responsive Tailwind interfaces with motion that earns its place.', tags: ['Tailwind', 'Framer Motion'] },
+  { icon: 'sparkles', title: 'AI Integration', desc: 'LLM-powered features — chat, tactical analysis, recommendations — wired into real products.', tags: ['OpenRouter', 'Python', 'PyTorch'] },
+  { icon: 'briefcase', title: 'Freelance & Consulting', desc: 'End-to-end ownership from requirements to deployment — direct with founders, fast shipping.', tags: ['MVP', 'Deployment', 'Client Work'] },
+];
+
+// TODO: replace with your real certificates — edit title/issuer/year/url here and the site updates everywhere.
+export const CERTIFICATIONS: Certification[] = [
+  { title: 'AIFF Certified Referee', issuer: 'All India Football Federation', year: '2024', skills: ['Decision Making', 'Rule Mastery'] },
+  { title: 'Full-Stack Web Development', issuer: 'IIT Hyderabad · My Job Grow', year: '2025', skills: ['React', 'Node.js', 'Supabase'] },
+  { title: 'Frontend Development', issuer: 'iTecz Solutions', year: '2025', skills: ['Ionic', 'Angular', 'UI Systems'] },
+  { title: 'AI-Powered App Builder', issuer: 'Omnimate', year: '2026', skills: ['AI Integration', 'Frontend'] },
+];
+
+export const EDUCATION: Education[] = [
+  { degree: 'B.Tech — Computer Science', school: 'AITM · Class of 2028', period: '2024 — 2028', desc: 'CS undergraduate building production systems alongside coursework — journal platforms, AI tools, and mobile apps.', highlights: ['IJESTM Journal Platform', 'AI & ML Coursework', 'Hackathons'] },
+];
 
 export const CONTACT_LINKS: ContactLink[] = [
   { label: 'EMAIL', value: 'workwithfiras@gmail.com', href: 'mailto:workwithfiras@gmail.com' },

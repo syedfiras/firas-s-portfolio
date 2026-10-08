@@ -4,11 +4,11 @@ import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X } from 'lucide-react';
+import { ArrowRight, Mail, ExternalLink, Flag, Trophy, Zap, Menu, X, Smartphone, Globe, Server, LayoutDashboard, Sparkles, Briefcase, Award, BadgeCheck, GraduationCap } from 'lucide-react';
 import { Github, Linkedin } from './icons';
 import Loader from './Loader';
 import ContributionsCard from './GitHubContributions';
-import { PROJECTS } from '@/data';
+import { PROJECTS, SERVICES, CERTIFICATIONS, EDUCATION } from '@/data';
 
 // ─── Animation helpers ───────────────────────────────────────
 const fadeUp: Variants = {
@@ -47,6 +47,8 @@ function Nav() {
         <a href="#top" className="nav-logo" onClick={closeMenu}>Syed Firas</a>
         <div className="nav-links">
           <a href="#work" className="nav-link">Work</a>
+          <a href="#services" className="nav-link">Services</a>
+          <a href="#certs" className="nav-link">Certs</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#contact" className="nav-link">Contact</a>
           <a
@@ -80,6 +82,12 @@ function Nav() {
             >
               <a href="#work" className="nav-mobile-link" onClick={closeMenu}>
                 Work <ArrowRight size={13} />
+              </a>
+              <a href="#services" className="nav-mobile-link" onClick={closeMenu}>
+                Services <ArrowRight size={13} />
+              </a>
+              <a href="#certs" className="nav-mobile-link" onClick={closeMenu}>
+                Certifications <ArrowRight size={13} />
               </a>
               <a href="#about" className="nav-mobile-link" onClick={closeMenu}>
                 About <ArrowRight size={13} />
@@ -427,6 +435,141 @@ function ToolkitCard() {
   );
 }
 
+const SERVICE_ICONS: Record<string, typeof Smartphone> = {
+  smartphone: Smartphone,
+  globe: Globe,
+  server: Server,
+  layout: LayoutDashboard,
+  sparkles: Sparkles,
+  briefcase: Briefcase,
+};
+
+function ServicesSection() {
+  return (
+    <>
+      {SERVICES.map((s, i) => {
+        const Icon = SERVICE_ICONS[s.icon] ?? Sparkles;
+        return (
+          <motion.div
+            key={s.title}
+            className="card card-service card-p"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeUp}
+            custom={(i % 3) * 0.06}
+            style={{ display: 'flex', flexDirection: 'column' }}
+          >
+            <div className="extra-icon">
+              <Icon size={20} style={{ color: 'var(--text-1)' }} />
+            </div>
+            <div className="extra-heading">{s.title}</div>
+            <p className="extra-body">{s.desc}</p>
+            <div className="tech-tags" style={{ marginTop: '1rem' }}>
+              {s.tags.map((t) => (
+                <span key={t} className="tech-tag">{t}</span>
+              ))}
+            </div>
+          </motion.div>
+        );
+      })}
+    </>
+  );
+}
+
+function CertificationsSection() {
+  return (
+    <>
+      {CERTIFICATIONS.map((c, i) => (
+        <motion.div
+          key={c.title}
+          className="card card-cert card-p"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeUp}
+          custom={(i % 4) * 0.06}
+          style={{ display: 'flex', flexDirection: 'column' }}
+        >
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '0.75rem', marginBottom: '1rem' }}>
+            <div className="extra-icon" style={{ marginBottom: 0 }}>
+              <Award size={20} style={{ color: 'var(--text-1)' }} />
+            </div>
+            <span className="cert-year">{c.year}</span>
+          </div>
+          <div className="extra-heading">{c.title}</div>
+          <div className="cert-issuer">
+            <BadgeCheck size={13} /> {c.issuer}
+          </div>
+          <div className="tech-tags" style={{ marginTop: '0.85rem' }}>
+            {c.skills.map((s) => (
+              <span key={s} className="tech-tag">{s}</span>
+            ))}
+          </div>
+          {c.url ? (
+            <a href={c.url} target="_blank" rel="noreferrer" className="work-link" style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+              Verify credential <ExternalLink size={11} />
+            </a>
+          ) : c.credentialId ? (
+            <span className="cert-id">ID: {c.credentialId}</span>
+          ) : null}
+        </motion.div>
+      ))}
+    </>
+  );
+}
+
+function EducationSection() {
+  return (
+    <>
+      {EDUCATION.map((e, i) => (
+        <motion.div
+          key={e.degree}
+          className="card card-edu card-p"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+          variants={fadeUp}
+          custom={i * 0.06}
+          style={{ display: 'flex', flexDirection: 'column' }}
+        >
+          <div className="extra-icon">
+            <GraduationCap size={20} style={{ color: 'var(--text-1)' }} />
+          </div>
+          <div className="cert-year" style={{ marginBottom: '0.6rem' }}>{e.period}</div>
+          <div className="extra-heading" style={{ fontSize: '1.15rem' }}>{e.degree}</div>
+          <div className="cert-issuer">{e.school}</div>
+          <p className="extra-body" style={{ marginTop: '0.75rem' }}>{e.desc}</p>
+          <div className="tech-tags" style={{ marginTop: '1rem' }}>
+            {e.highlights.map((h) => (
+              <span key={h} className="tech-tag">{h}</span>
+            ))}
+          </div>
+        </motion.div>
+      ))}
+      <motion.div
+        className="card card-edu card-p card-edu-cta"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-60px' }}
+        variants={fadeUp}
+        custom={0.08}
+        style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
+      >
+        <div className="extra-heading" style={{ fontSize: '1.4rem', lineHeight: 1.15 }}>
+          Always<br />learning.
+        </div>
+        <p className="extra-body" style={{ marginTop: '0.6rem' }}>
+          Currently deep into full-stack systems, AI integration and shipping Interiora Studio to production.
+        </p>
+        <a href="/resume.pdf" target="_blank" rel="noreferrer" className="github-link-pill" style={{ alignSelf: 'flex-start', marginTop: '1.1rem' }}>
+          View Resume <ArrowRight size={12} />
+        </a>
+      </motion.div>
+    </>
+  );
+}
+
 type WorkCardProps = {
   project: typeof PROJECTS[number];
   colClass: string;
@@ -689,6 +832,12 @@ export default function Site() {
             <StatsCard />
             <AboutCard />
 
+            {/* ── What I Do ── */}
+            <div id="services" className="strip" style={{ scrollMarginTop: '6rem' }}>
+              <span className="strip-label">What I Do</span><span className="strip-line" />
+            </div>
+            <ServicesSection />
+
             {/* ── Featured + Experience ── */}
             <Strip label="Featured Project" />
             <FeaturedProjectCard />
@@ -751,6 +900,16 @@ export default function Site() {
                 View All Projects <ArrowRight size={14} />
               </Link>
             </motion.div>
+
+            {/* ── Certifications ── */}
+            <div id="certs" className="strip" style={{ scrollMarginTop: '6rem' }}>
+              <span className="strip-label">Certifications</span><span className="strip-line" />
+            </div>
+            <CertificationsSection />
+
+            {/* ── Education ── */}
+            <Strip label="Education" />
+            <EducationSection />
 
             {/* ── Extras + GitHub ── */}
             <Strip label="Beyond the Screen" />
