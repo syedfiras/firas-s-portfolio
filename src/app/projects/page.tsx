@@ -1,39 +1,49 @@
 import type { Metadata } from 'next';
-import Nav from '@/components/ProjectNav';
+import Nav from '@/components/Nav';
 import ProjectsGrid from '@/components/ProjectsGrid';
-import { PROJECTS } from '@/data';
+import { PROJECTS, PROJECTS_ALL_URL } from '@/data/projects';
 
 export const metadata: Metadata = {
   title: 'All Projects',
   description:
-    'All projects by Syed Firas Peerzade — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI, Sahaya, QR Restaurant and more.',
+    'All projects by Syed Firas Peerzade — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI and more.',
+  alternates: { canonical: PROJECTS_ALL_URL },
 };
 
 export default function ProjectsPage() {
   return (
     <>
       <Nav />
-      <div className="noise" aria-hidden />
-      <main className="portfolio-root">
-        <div className="container">
-          <div className="proj-index-hero">
-            <div className="proj-eyebrow">
-              Archive — {String(PROJECTS.length).padStart(2, '0')} Projects
-            </div>
-            <h1 className="proj-index-title">All Projects</h1>
-            <p className="proj-index-intro">
-              A complete archive of builds — featured work plus experiments and
-              in-progress explorations. Select any project to open its case study.
-            </p>
+      <main className="min-h-screen bg-void pt-32 md:pt-40">
+        <div className="container-x">
+          <div className="mb-16 flex items-center gap-4 md:mb-24">
+            <span className="eyebrow">Archive</span>
+            <span className="h-px flex-1 bg-line" />
+            <span className="eyebrow">{String(PROJECTS.length).padStart(2, '0')} Projects</span>
           </div>
+
+          <h1
+            className="display mb-8 max-w-[12ch] text-ink"
+            style={{ fontSize: 'clamp(2.8rem, 9vw, 9rem)', lineHeight: 0.86 }}
+          >
+            All Projects
+          </h1>
+          <p className="mb-20 max-w-[52ch] text-base text-ash md:text-lg">
+            A complete archive of builds — production apps, platforms, and AI tooling. Select any
+            project to open its case study.
+          </p>
 
           <ProjectsGrid />
         </div>
 
-        <footer className="footer">
-          <div className="container footer-inner">
-            <span>© {new Date().getFullYear()} Syed Firas Peerzade</span>
-            <span>Full Stack Developer · Karnataka, India</span>
+        <footer className="mt-28 border-t border-line py-8">
+          <div className="container-x flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
+              © 2026 Syed Firas Peerzade
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
+              Full Stack Developer · Karnataka, India
+            </span>
           </div>
         </footer>
       </main>

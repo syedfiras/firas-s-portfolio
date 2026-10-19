@@ -1,80 +1,110 @@
 'use client';
 
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import gsap from '@/lib/gsap';
+import { useLenis } from '@/lib/lenis';
+import { markIntroDone } from '@/lib/intro';
+import { prefersReducedMotion } from '@/lib/motion';
+import { PROFILE } from '@/data/profile';
 
-const NAME = 'SYED FIRAS'.split('');
+/**
+ * Intro loader: counts 0 → 100, then wipes the curtain upward to reveal the
+ * hero. Skipped to a quick fade under reduced motion.
+ */
+export default function Loader() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const numRef = useRef<HTMLSpanElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const { lenis } = useLenis();
+  const lenisRef = useRef<typeof lenis>(null);
+  const [done, setDone] = useState(false);
 
-const letter = {
-  hidden: { y: '110%' },
-  visible: (i: number) => ({
-    y: '0%',
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const, delay: 0.25 + i * 0.04 },
-  }),
-};
-
-type LoaderProps = {
-  onDone?: () => void;
-  /** Legacy alias used by AppLoader — behaves identically to onDone. */
-  onComplete?: () => void;
-};
-
-export default function Loader({ onDone, onComplete }: LoaderProps) {
-  const finish = onDone ?? onComplete ?? (() => {});
   useEffect(() => {
-    // Honor reduced-motion: skip the intro quickly
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const id = setTimeout(finish, 100);
-      return () => clearTimeout(id);
+    lenisRef.current = lenis;
+  }, [lenis]);
+
+  useLayoutEffect(() => {
+    const root = rootRef.current;
+    const num = numRef.current;
+    const bar = barRef.current;
+    if (!root || !num || !bar) return;
+
+    // Lock scrolling for the duration of the intro.
+    document.documentElement.style.overflow = 'hidden';
+    lenisRef.current?.stop();
+    window.scrollTo(0, 0);
+
+    const finish = () => {
+      document.documentElement.style.overflow = '';
+      lenisRef.current?.start();
+      setDone(true);
+      markIntroDone();
+    };
+
+    if (prefersReducedMotion()) {
+      const t = gsap.timeline({ onComplete: finish });
+      t.to(root, { autoAlpha: 0, duration: 0.5, ease: 'power2.out', delay: 0.2 });
+      return () => t.kill();
     }
-    const id = setTimeout(finish, 2000);
-    return () => clearTimeout(id);
-  }, [finish]);
+
+    const counter = { v: 0 };
+    const tl = gsap.timeline({ onComplete: finish });
+
+    tl.set(bar, { scaleX: 0, transformOrigin: 'left center' })
+      .to(counter, {
+        v: 100,
+        duration: 1.7,
+        ease: 'power2.inOut',
+        onUpdate: () => {
+          num.textContent = String(Math.round(counter.v)).padStart(3, '0');
+        },
+      }, 0)
+      .to(bar, { scaleX: 1, duration: 1.7, ease: 'power2.inOut' }, 0)
+      .to([num, bar], { autoAlpha: 0, duration: 0.4, ease: 'power2.out' }, '>-0.1')
+      .to(root, {
+        yPercent: -100,
+        duration: 1,
+        ease: 'expo.inOut',
+      }, '>-0.1');
+
+    return () => {
+      tl.kill();
+      document.documentElement.style.overflow = '';
+      lenisRef.current?.start();
+    };
+  }, []);
+
+  if (done) return null;
 
   return (
-    <motion.div
-      className="loader"
+    <div
+      ref={rootRef}
+      className="fixed inset-0 z-[200] flex flex-col justify-between bg-void px-5 py-6 md:px-10 md:py-8"
       aria-hidden
-      exit={{ y: '-100%', transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] as const } }}
     >
-      <div className="loader-inner">
-        <motion.div
-          className="loader-eyebrow"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+      <div className="flex items-center justify-between">
+        <span className="eyebrow">{PROFILE.name}</span>
+        <span className="eyebrow">Portfolio · 2026</span>
+      </div>
+
+      <div className="flex items-end justify-center">
+        <span
+          ref={numRef}
+          className="display text-[22vw] leading-none text-ink md:text-[16vw]"
         >
-          <span className="loader-dot" />
-          Full Stack Developer — Portfolio
-        </motion.div>
+          000
+        </span>
+      </div>
 
-        <h1 className="loader-name">
-          <span className="loader-line">
-            {NAME.map((ch, i) => (
-              <span key={i} className="loader-mask">
-                <motion.span
-                  className={`loader-char${i >= 5 ? ' loader-char-dim' : ''}`}
-                  initial="hidden"
-                  animate="visible"
-                  variants={letter}
-                  custom={i}
-                >
-                  {ch === ' ' ? '\u00A0' : ch}
-                </motion.span>
-              </span>
-            ))}
-          </span>
-        </h1>
-
-        <div className="loader-track">
-          <motion.div
-            className="loader-bar"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] as const, delay: 0.3 }}
-          />
+      <div className="flex flex-col gap-4">
+        <div className="h-px w-full bg-line">
+          <div ref={barRef} className="h-full w-full bg-accent" />
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="eyebrow">Loading</span>
+          <span className="eyebrow">{PROFILE.role}</span>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

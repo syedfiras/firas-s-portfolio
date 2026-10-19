@@ -1,12 +1,26 @@
 import type { Metadata, Viewport } from 'next';
-import { Manrope } from 'next/font/google';
+import { Anton, Manrope, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import { LenisProvider } from '@/lib/lenis';
+import Cursor from '@/components/ui/Cursor';
+
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-anton',
+});
 
 const manrope = Manrope({
-  weight: ['300', '400', '500', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-manrope',
+});
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-jetbrains',
 });
 
 const SITE_URL = 'https://www.syedfiras.dev';
@@ -21,11 +35,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzade | Full Stack Developer — SDE Intern @ Dream Space Interiors',
+    default: 'Syed Firas Peerzade | Full Stack Developer',
     template: '%s | Syed Firas Peerzade',
   },
   description:
-    'Portfolio of Syed Firas Peerzade — Full Stack Developer & SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
+    'Portfolio of Syed Firas Peerzade — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
   keywords: [
     'Syed Firas Peerzade',
     'full stack developer',
@@ -35,17 +49,17 @@ export const metadata: Metadata = {
     'next.js developer',
     'portfolio',
     'mobile app developer',
-    'dream space interiors',
+    'Dream Space Interiors',
   ],
-  authors: [{ name: 'Syed Firas Peerzade', url: SITE_URL }],
-  creator: 'Syed Firas Peerzade',
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzade | Full Stack Developer — SDE Intern @ Dream Space Interiors',
+    title: 'Syed Firas Peerzade | Full Stack Developer',
     description:
       'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building Interiora Studio — React Native, Next.js, Node.js, Supabase.',
     images: [
@@ -88,8 +102,6 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#website`,
         url: SITE_URL,
         name: SITE_NAME,
-        description:
-          'Portfolio of Syed Firas Peerzade — Full Stack Developer, SDE Intern at Dream Space Interiors.',
         inLanguage: 'en',
       },
       {
@@ -97,14 +109,30 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: 'SDE Intern @ Dream Space Interiors | Full Stack Developer',
+        jobTitle: 'Full Stack Developer · SDE Intern at Dream Space Interiors',
         email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
+        address: {
+          '@type': 'PostalAddress',
+          addressRegion: 'Karnataka',
+          addressCountry: 'IN',
+        },
         sameAs: [
           'https://github.com/syedfiras',
           'https://linkedin.com/in/syedfiras7',
         ],
-        knowsAbout: ['React Native', 'Next.js', 'React', 'TypeScript', 'Node.js', 'Supabase'],
+        knowsAbout: [
+          'React Native',
+          'Next.js',
+          'React',
+          'TypeScript',
+          'Node.js',
+          'Supabase',
+        ],
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'AITM',
+        },
         worksFor: {
           '@type': 'Organization',
           name: 'Dream Space Interiors',
@@ -114,21 +142,29 @@ export default function RootLayout({
             addressCountry: 'IN',
           },
         },
-        description:
-          'SDE Intern at Dream Space Interiors (Jul 2026 – Present) — building Interiora Studio and internal tooling.',
       },
     ],
   };
 
   return (
-    <html lang="en" className={manrope.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${anton.variable} ${manrope.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <LenisProvider>
+          {children}
+          <Cursor />
+          <div className="grain" aria-hidden />
+        </LenisProvider>
+      </body>
     </html>
   );
 }

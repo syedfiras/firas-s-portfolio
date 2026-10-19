@@ -1,258 +1,209 @@
-'use client';
-
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import Nav from '@/components/Nav';
+import Reveal from '@/components/ui/Reveal';
 import { Github } from '@/components/icons';
-import { PROJECTS, SLUG_TO_PROJECT_ID as slugMap } from '@/data';
-import Nav from '@/components/ProjectNav';
+import { PROJECTS, SLUG_TO_PROJECT } from '@/data/projects';
+import { CASE_STUDIES } from '@/data/caseStudies';
 
-// Rich case-study data per project
-const CASE_STUDIES: Record<string, {
-  problem: string;
-  solution: string;
-  role: string;
-  features: string[];
-  challenge: string;
-  result: string;
-}> = {
-  '01': {
-    problem: 'BIFA Football Club had no centralized system to manage players, track match results, or handle club administration. Everything was done manually via spreadsheets and WhatsApp, making it error-prone and slow.',
-    solution: 'Built a cross-platform mobile app and web portal that unifies player registration, match scheduling, and club administration into a single system accessible by coaches, admins, and players.',
-    role: 'Sole developer — architected the full-stack system, designed the UI with NativeWind, built the REST API with Node.js, and set up the Supabase database with row-level security.',
-    features: ['Player registration & profile management', 'Match scheduling & result tracking', 'Club admin dashboard', 'Real-time notifications', 'Registration portal (web)', 'Role-based access control'],
-    challenge: 'Ensuring the app performed well across both Android and iOS while keeping the codebase unified was the primary challenge. NativeWind allowed design consistency across platforms without maintaining separate stylesheets.',
-    result: 'Live in production, actively used by BIFA Football Club for player and match management.',
-  },
-  '02': {
-    problem: 'Football clubs needed a digital platform to conduct player transfer auctions with transparency and real-time bidding.',
-    solution: 'A web-based auction platform with real-time updates, secure bid management, and a clean bidding interface for club representatives.',
-    role: 'Full-stack developer — React frontend, Node.js backend, Supabase for real-time data.',
-    features: ['Real-time bidding', 'Club authentication', 'Player listing & auction rooms', 'Bid history tracking', 'Admin controls'],
-    challenge: 'Implementing real-time bid synchronization across multiple simultaneous users without race conditions or stale state.',
-    result: 'Live and used for conducting football player auctions.',
-  },
-  '03': {
-    problem: 'A gym had no digital infrastructure — member check-ins, billing, and scheduling were all paper-based, causing errors and inefficiency.',
-    solution: 'A full gym management platform covering member tracking, work scheduling, automated billing, and monthly performance logs.',
-    role: 'Sole developer — Ionic Angular frontend, Node.js API, Supabase database. Delivered as a freelance project.',
-    features: ['Member registration & tracking', 'Automated billing system', 'Work & class scheduling', 'Monthly performance logs', 'Admin dashboard', 'Mobile-responsive UI'],
-    challenge: 'Building a complex multi-module system solo under tight freelance timelines while keeping the UI accessible to non-technical gym staff.',
-    result: 'Live in production at gymnetsolutions.netlify.app, actively used by gym staff.',
-  },
-  '04': {
-    problem: 'AITM college needed a professional online presence for its IJESTM research journal with proper SEO to help academics discover published papers.',
-    solution: 'A Next.js journal website with TypeScript, tailored metadata, structured data, and SEO features specifically for academic publications.',
-    role: 'Full-stack developer — built the entire site, implemented academic SEO patterns, and deployed it for the institution.',
-    features: ['Academic SEO optimization', 'Structured data for research papers', 'Responsive editorial layout', 'Volume & issue management', 'Author submission guidelines', 'Fast static rendering'],
-    challenge: 'Academic SEO has unique requirements — structured data for research papers, proper canonical handling, and indexing signals differ from standard web pages.',
-    result: 'Live at ijestm.aitm.edu.in, indexed and discoverable on Google Scholar and other academic search engines.',
-  },
-  '05': {
-    problem: 'Football coaches needed AI-assisted tactical analysis and drill planning but existing AI tools were too generic and not football-specific.',
-    solution: 'An AI-powered football coaching assistant that generates tactical breakdowns, drill plans, and performance insights using LLM capabilities via OpenRouter.',
-    role: 'Full-stack developer — React frontend, Node.js backend, OpenRouter LLM integration, Supabase for session management.',
-    features: ['Tactical analysis generation', 'AI drill plan creation', 'Performance insights', 'Chat-style interface', 'Session persistence', 'Coach profile system'],
-    challenge: 'Prompt engineering for domain-specific football knowledge — making the AI output tactically sound rather than generic coaching advice.',
-    result: 'Live at footballcoachai.netlify.app, available for coaches to explore AI-assisted coaching workflows.',
-  },
-  '06': {
-    problem: 'In real-world emergencies, women often cannot unlock a phone, open an app, and navigate menus to call for help. Existing safety apps were too slow when seconds mattered — help needed to be one gesture away.',
-    solution: 'A women-safety mobile app built for real emergencies — shake-to-alert that instantly notifies trusted contacts with live location, plus geofencing alerts when entering or leaving marked zones.',
-    role: 'Sole developer — React Native frontend with NativeWind, Supabase backend for contacts, location sharing, and alert delivery.',
-    features: ['Shake-to-alert SOS trigger', 'Live location tracking & sharing', 'Geofencing alerts', 'Trusted contacts management', 'One-tap emergency flow', 'Real-time alert delivery'],
-    challenge: 'Balancing shake-detection sensitivity to avoid false triggers while keeping background location reliable without draining the battery — the core tension of the whole app.',
-    result: 'Built as a working end-to-end prototype demonstrating the full emergency flow. Currently paused and not in production.',
-  },
-  '07': {
-    problem: 'Dine-in ordering meant waiting for staff to take orders, handling physical menus, and slow billing — friction for guests and load for restaurant staff during peak hours.',
-    solution: 'A restaurant web app where each table gets a QR code — guests scan it, browse the live menu, place orders, and pay from their phones, while the kitchen sees incoming orders in real time.',
-    role: 'Full-stack developer — Next.js frontend, Node.js API, Supabase for menu, order, and session state.',
-    features: ['QR-per-table sessions', 'Live digital menu', 'Cart & order placement', 'Payment flow', 'Kitchen order view', 'Mobile-first responsive UI'],
-    challenge: 'Scoping every session to the right table and keeping order state in sync between the guest view and the kitchen view without stale or duplicated orders.',
-    result: 'Built as a working prototype covering the full scan-to-payment flow. Currently paused and not in production.',
-  },
-};
+export function generateStaticParams() {
+  return PROJECTS.map((p) => ({ slug: p.slug }));
+}
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: (d = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16,1,0.3,1] as const, delay: d } }),
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const project = SLUG_TO_PROJECT[slug];
+  if (!project) return { title: 'Project not found' };
+  return {
+    title: project.title,
+    description: project.description,
+    alternates: { canonical: `/projects/${slug}` },
+    openGraph: {
+      title: `${project.title} — Syed Firas Peerzade`,
+      description: project.description,
+      images: [{ url: project.image }],
+    },
+  };
+}
 
-export default function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = use(params);
-  const id = slugMap[slug];
-  if (!id) notFound();
-
-  const project = PROJECTS.find((p) => p.id === id);
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = SLUG_TO_PROJECT[slug];
   if (!project) notFound();
 
-  const cs = CASE_STUDIES[id];
-  const currentIdx = PROJECTS.findIndex((p) => p.id === id);
-  const nextProject = PROJECTS[(currentIdx + 1) % PROJECTS.length];
-  const nextSlug = Object.entries(slugMap).find(([, v]) => v === nextProject.id)?.[0];
+  const cs = CASE_STUDIES[slug];
+  const idx = PROJECTS.findIndex((p) => p.slug === slug);
+  const next = PROJECTS[(idx + 1) % PROJECTS.length];
 
   return (
     <>
       <Nav />
-      <div className="noise" aria-hidden />
-      <main className="proj-root">
-        <div className="container">
-
-          {/* Back link */}
-          <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0}>
-            <Link href="/#work" className="proj-back">
+      <main className="min-h-screen bg-void pt-28 md:pt-36">
+        <div className="container-x">
+          <Reveal>
+            <Link
+              href="/#work"
+              className="mb-12 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ash transition-colors hover:text-accent"
+            >
               <ArrowLeft size={14} /> Back to Work
             </Link>
-          </motion.div>
+          </Reveal>
 
-          {/* Hero */}
-          <motion.div className="proj-hero" initial="hidden" animate="visible" variants={fadeUp} custom={0.05}>
-            <div className="proj-eyebrow">Project {project.id} — {project.type}</div>
-            <h1 className="proj-title">{project.title}</h1>
-            <p className="proj-desc">{project.desc}</p>
+          <Reveal className="flex items-center gap-4">
+            <span className="eyebrow">
+              Project {project.id} — {project.category}
+            </span>
+            <span className="h-px flex-1 bg-line" />
+          </Reveal>
 
-            {/* Meta */}
-            <div className="proj-meta-grid">
-              <div className="proj-meta-item">
-                <label>Type</label>
-                <span>{project.type}</span>
-              </div>
-              <div className="proj-meta-item">
-                <label>Stack</label>
-                <span>{project.stack.join(', ')}</span>
-              </div>
-              <div className="proj-meta-item">
-                <label>Status</label>
-                <span style={{ color: project.status === 'live' ? 'var(--green)' : 'var(--text-2)' }}>
-                  {project.status === 'live' ? '● Live' : '◌ In Progress'}
-                </span>
-              </div>
-              <div className="proj-meta-item">
-                <label>Links</label>
-                <span style={{ display: 'flex', gap: '0.75rem' }}>
-                  {project.links.preview && (
-                    <a href={project.links.preview} target="_blank" rel="noreferrer"
-                      style={{ color: 'var(--text-1)', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85rem', fontWeight: 600 }}>
-                      Live <ExternalLink size={13} />
-                    </a>
-                  )}
-                  {project.links.source && (
-                    <a href={project.links.source} target="_blank" rel="noreferrer"
-                      style={{ color: 'var(--text-1)', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85rem', fontWeight: 600 }}>
-                      GitHub <Github size={13} />
-                    </a>
-                  )}
-                </span>
-              </div>
-            </div>
-          </motion.div>
+          <Reveal delay={0.05}>
+            <h1
+              className="display mt-6 max-w-[16ch] text-ink"
+              style={{ fontSize: 'clamp(2.6rem, 8vw, 8rem)', lineHeight: 0.86 }}
+            >
+              {project.title}
+            </h1>
+            <p className="mt-6 max-w-[56ch] text-base text-ash md:text-lg">
+              {project.description}
+            </p>
+          </Reveal>
 
-          {/* Screenshot */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}>
-            <Image
-              src={`/projects/${project.image}`}
-              alt={project.title}
-              width={1280}
-              height={720}
-              className="proj-screenshot"
-              quality={85}
-            />
-          </motion.div>
-
-          {/* Content grid */}
-          <div className="proj-split">
-            
-            {cs && (
-              <>
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                  <div className="proj-section-title">Problem</div>
-                  <p className="proj-body">{cs.problem}</p>
-                </motion.div>
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0.05}>
-                  <div className="proj-section-title">Solution</div>
-                  <p className="proj-body">{cs.solution}</p>
-                </motion.div>
-              </>
+          <Reveal className="mt-12 flex flex-wrap items-center gap-6">
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
+              >
+                Live <ArrowUpRight size={13} />
+              </a>
             )}
-          </div>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
+              >
+                GitHub <Github size={13} />
+              </a>
+            )}
+            <ul className="flex flex-wrap gap-2">
+              {project.tags.map((t) => (
+                <li
+                  key={t}
+                  className="border border-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ash"
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
-          {/* Key Features */}
+          <Reveal className="mt-16 md:mt-20">
+            <div className="relative aspect-[16/9] w-full overflow-hidden border border-line bg-carbon">
+              <Image
+                src={project.image}
+                alt={`${project.title} — interface`}
+                fill
+                priority
+                sizes="100vw"
+                quality={85}
+                className="object-cover object-center"
+              />
+            </div>
+          </Reveal>
+
           {cs && (
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <div className="proj-section-title">Key Features</div>
-              <div className="proj-feature-list">
-                {cs.features.map((f) => (
-                  <div key={f} className="proj-feature-item">
-                    <span className="proj-feature-dot" />
-                    <span className="proj-feature-text">{f}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            <div className="mt-24 grid grid-cols-1 gap-16 md:mt-32 md:grid-cols-2 md:gap-12">
+              <Reveal>
+                <h2 className="eyebrow mb-4">Problem</h2>
+                <p className="text-base leading-relaxed text-ash">{cs.problem}</p>
+              </Reveal>
+              <Reveal delay={0.05}>
+                <h2 className="eyebrow mb-4">Solution</h2>
+                <p className="text-base leading-relaxed text-ash">{cs.solution}</p>
+              </Reveal>
+            </div>
           )}
 
-          {/* Role + Challenge + Result */}
           {cs && (
-            <div className="proj-split proj-split-3">
+            <Reveal className="mt-20">
+              <h2 className="eyebrow mb-6">Key Features</h2>
+              <ul className="grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2">
+                {cs.features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex items-start gap-3 border-b border-line py-3 text-sm text-ink"
+                  >
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          )}
+
+          {cs && (
+            <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-3">
               {[
                 { title: 'My Role', body: cs.role },
                 { title: 'Challenge', body: cs.challenge },
                 { title: 'Result', body: cs.result },
-              ].map(({ title, body }) => (
-                <motion.div key={title} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-                  <div className="proj-section-title">{title}</div>
-                  <p className="proj-body">{body}</p>
-                </motion.div>
+              ].map((block, i) => (
+                <Reveal key={block.title} delay={i * 0.05}>
+                  <h2 className="eyebrow mb-4">{block.title}</h2>
+                  <p className="text-sm leading-relaxed text-ash">{block.body}</p>
+                </Reveal>
               ))}
             </div>
           )}
 
-          {/* Tech Stack pills */}
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} style={{ marginBottom: '3rem' }}>
-            <div className="proj-section-title">Tech Stack</div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
-              {project.stack.map((t) => (
+          <Reveal className="mt-24 md:mt-32">
+            <h2 className="eyebrow mb-5">Next Project</h2>
+            <Link
+              href={`/projects/${next.slug}`}
+              className="group flex items-center justify-between gap-6 border-t border-line pt-8"
+            >
+              <div className="flex flex-col gap-2">
+                <span className="eyebrow">{next.category}</span>
                 <span
-                  key={t}
-                  style={{
-                    padding: '0.45rem 1rem',
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-2)',
-                    borderRadius: 'var(--r-sm)',
-                    fontSize: '0.82rem',
-                    fontWeight: 600,
-                    color: 'var(--text-1)',
-                  }}
+                  className="display text-ink transition-colors group-hover:text-accent"
+                  style={{ fontSize: 'clamp(1.6rem, 4vw, 3.4rem)' }}
                 >
-                  {t}
+                  {next.title}
                 </span>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Next Project */}
-          {nextSlug && (
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}>
-              <div className="proj-section-title">Next Project</div>
-              <Link href={`/projects/${nextSlug}`} className="proj-next">
-                <div>
-                  <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'var(--text-3)', marginBottom: '0.35rem' }}>
-                    {nextProject.type}
-                  </div>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', textTransform: 'uppercase', color: 'var(--text-1)' }}>
-                    {nextProject.title}
-                  </div>
-                </div>
-                <ArrowRight size={24} style={{ color: 'var(--text-2)', flexShrink: 0 }} />
-              </Link>
-            </motion.div>
-          )}
-
+              </div>
+              <ArrowRight
+                size={28}
+                className="shrink-0 text-smoke transition-transform duration-300 group-hover:translate-x-2"
+              />
+            </Link>
+          </Reveal>
         </div>
+
+        <footer className="mt-28 border-t border-line py-8">
+          <div className="container-x flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
+              © 2026 Syed Firas Peerzade
+            </span>
+            <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
+              Full Stack Developer · Karnataka, India
+            </span>
+          </div>
+        </footer>
       </main>
     </>
   );
