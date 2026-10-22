@@ -22,10 +22,12 @@ export default function ProjectsGrid() {
               quality={75}
               className="object-cover object-center transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
             />
-            <span className="absolute left-4 top-4 inline-flex items-center gap-2 border border-line bg-void/60 px-2.5 py-1 backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink">Live</span>
-            </span>
+            {project.live && (
+              <span className="absolute left-4 top-4 inline-flex items-center gap-2 border border-line bg-void/60 px-2.5 py-1 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink">Live</span>
+              </span>
+            )}
           </Link>
 
           <div className="flex flex-1 flex-col gap-3 pt-5">

@@ -53,7 +53,7 @@ export default function ProgressBar() {
       </div>
 
       <div
-        className="pointer-events-none fixed bottom-4 right-4 z-[80] flex items-center gap-2 md:bottom-6 md:right-6"
+        className="pointer-events-none fixed bottom-6 right-6 z-[80] flex items-center gap-2 md:bottom-8 md:right-8"
         aria-hidden
       >
         <span className="font-mono text-xs tabular-nums text-ink">{pad(active)}</span>

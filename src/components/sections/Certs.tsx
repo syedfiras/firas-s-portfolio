@@ -28,15 +28,15 @@ export default function Certs() {
                   {cert.title}
                 </span>
 
-                <span className="text-sm text-ash md:col-span-3">{cert.issuer}</span>
+                <span className="text-sm text-ash md:col-span-2">{cert.issuer}</span>
 
-                <span className="flex flex-wrap gap-2 md:col-span-1 md:justify-end">
-                  <span className="hidden max-w-0 overflow-hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.12em] text-smoke transition-all duration-500 group-hover:max-w-[16rem] md:inline-block">
+                <span className="flex flex-wrap gap-2 md:col-span-2 md:justify-end">
+                  <span className="hidden font-mono text-[10px] uppercase leading-relaxed tracking-[0.12em] text-ash md:inline-block md:text-right">
                     {cert.tags.join(' · ')}
                   </span>
                   <span className="flex flex-wrap gap-2 md:hidden">
                     {cert.tags.map((t) => (
-                      <span key={t} className="font-mono text-[10px] uppercase tracking-[0.12em] text-smoke">
+                      <span key={t} className="font-mono text-[10px] uppercase tracking-[0.12em] text-ash">
                         {t}
                       </span>
                     ))}

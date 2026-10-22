@@ -27,7 +27,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     year: '2026',
     title: 'AI-Powered App Builder',
-    issuer: 'Omnimate',
+    issuer: 'OMNIMATE AI',
     tags: ['AI Integration', 'Frontend'],
   },
 ];
@@ -41,9 +41,9 @@ export interface Education {
 
 export const EDUCATION: Education = {
   period: '2024 – 2028',
-  degree: 'B.Tech — Computer Science',
+  degree: 'B.Tech in Computer Science and Engineering',
   school: 'AITM',
-  note: 'Building production systems alongside coursework.',
+  note: 'Expected graduation 2028 — building production systems alongside coursework.',
 };
 
 export interface BeyondItem {
@@ -67,8 +67,9 @@ export const BEYOND: BeyondItem[] = [
   },
   {
     index: '03',
-    title: '13 Hackathons',
-    detail: 'Thirteen hackathons — shipping under a clock is where I do my best work.',
+    title: '13 National Hackathons',
+    detail:
+      'Participated in 13 national hackathons — shipping under a clock is where I do my best work.',
   },
   {
     index: '04',

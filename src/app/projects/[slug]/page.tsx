@@ -200,7 +200,7 @@ export default async function ProjectPage({
               © 2026 Syed Firas Peerzade
             </span>
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
-              Full Stack Developer · Karnataka, India
+              Full-Stack Developer · Bhatkal, Karnataka, India
             </span>
           </div>
         </footer>

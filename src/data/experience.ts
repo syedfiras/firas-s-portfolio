@@ -11,37 +11,37 @@ export const EXPERIENCE: Experience[] = [
   {
     company: 'Dream Space Interiors',
     role: 'SDE Intern',
-    location: 'Bangalore',
+    location: 'Remote',
     period: 'Jul 2026 – Present',
     description:
-      'Building and scaling Interiora Studio end-to-end — frontend, backend, and deployment.',
+      'Independently develop and ship features for Interiora Studio, an interior design management platform. Implement application interfaces and project management functionality, develop responsive frontend features, integrate application services, and maintain and extend the existing production platform alongside the design team and supervisor. Deployed on a Hostinger KVM 1 VPS.',
     bullets: [
       'Authentication',
       'Project Management',
-      'Responsive Tailwind UI',
-      'Vercel Deployment',
-      'Internal Tooling',
+      'Responsive Frontend',
+      'Application Services',
+      'Hostinger KVM 1 VPS',
     ],
   },
   {
-    company: 'Omnimate',
-    role: 'Frontend Intern',
-    period: 'May – Jul 2026',
-    description:
-      'Contributed to modern frontend systems, UI architecture, and scalable components.',
-  },
-  {
-    company: 'iTecz Solutions, Australia',
-    role: 'Frontend Intern',
+    company: 'Digiscrypt Technologies',
+    role: 'Frontend Developer',
     period: 'Mar – Jun 2025',
     description:
-      'Built a School Management App and an Accounting System with Ionic and Angular — admissions, attendance, fee management, invoicing, and reporting.',
+      'Contributed to frontend development for a school management system — student records, attendance workflows, and administrative interfaces. Improved responsive UI components and helped debug application issues.',
   },
   {
-    company: 'My Job Grow & IIT Hyderabad',
-    role: 'Web Dev Intern',
+    company: 'OMNIMATE AI',
+    role: 'Frontend Developer',
+    period: 'May – Jul 2026',
+    description:
+      'Developed frontend features for an AI-powered student-internship matching platform, contributing to user-facing interfaces and recommendation workflows.',
+  },
+  {
+    company: 'Freelance',
+    role: 'Freelance Developer',
     period: '2025',
     description:
-      'Focused on full-stack integration and responsive client interfaces.',
+      'Built a gym management application for a paying client using Ionic, Angular, Node.js, and Supabase — member management, scheduling, and administrative functionality, from requirements through deployment.',
   },
 ];

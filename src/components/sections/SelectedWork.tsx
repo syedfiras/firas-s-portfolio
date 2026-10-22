@@ -152,12 +152,16 @@ export default function SelectedWork() {
 
                 <div className="relative z-20 flex h-full min-h-[70vh] flex-col justify-between p-6 md:min-h-0 md:p-10">
                   <div className="flex items-start justify-between">
-                    <span className="inline-flex items-center gap-2 border border-line bg-void/50 px-3 py-1.5 backdrop-blur-sm">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink">
-                        Live
+                    {project.live ? (
+                      <span className="inline-flex items-center gap-2 border border-line bg-void/50 px-3 py-1.5 backdrop-blur-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink">
+                          Live
+                        </span>
                       </span>
-                    </span>
+                    ) : (
+                      <span aria-hidden />
+                    )}
                     <span className="eyebrow text-ink">{project.category}</span>
                   </div>
 

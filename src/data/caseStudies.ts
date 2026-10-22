@@ -100,4 +100,23 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     result:
       'Live and available for coaches to explore AI-assisted coaching workflows.',
   },
+  'interiora-studio': {
+    problem:
+      'Interior design teams needed a centralized platform to manage projects and day-to-day studio operations.',
+    solution:
+      'Interiora Studio is an interior design management platform featuring authentication, project management, and a responsive application interface. I develop and ship features for the platform during my SDE internship at Dream Space Interiors.',
+    role: 'SDE Intern — independently developed and shipped application features, implemented interfaces and project management functionality, integrated application services, and maintained the existing production platform alongside the design team and supervisor.',
+    features: [
+      'Authentication',
+      'Project management',
+      'Responsive application interface',
+      'Application service integration',
+      'Production platform maintenance',
+      'Hostinger KVM 1 VPS deployment',
+    ],
+    challenge:
+      'Extending and maintaining an existing production platform while continuing to ship new features.',
+    result:
+      'Deployed on a Hostinger KVM 1 VPS and actively maintained as a production interior design management platform.',
+  },
 };

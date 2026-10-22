@@ -6,7 +6,7 @@ import { PROJECTS, PROJECTS_ALL_URL } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'All Projects',
   description:
-    'All projects by Syed Firas Peerzade — BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI and more.',
+    'All projects by Syed Firas Peerzade — Interiora Studio, BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI and more.',
   alternates: { canonical: PROJECTS_ALL_URL },
 };
 
@@ -42,7 +42,7 @@ export default function ProjectsPage() {
               © 2026 Syed Firas Peerzade
             </span>
             <span className="font-mono text-[11px] uppercase tracking-[0.16em] text-smoke">
-              Full Stack Developer · Karnataka, India
+              Full-Stack Developer · Bhatkal, Karnataka, India
             </span>
           </div>
         </footer>

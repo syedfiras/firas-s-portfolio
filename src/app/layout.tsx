@@ -35,18 +35,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Syed Firas Peerzade | Full Stack Developer',
+    default: 'Syed Firas Peerzade | Full-Stack Developer | Frontend & Mobile Developer',
     template: '%s | Syed Firas Peerzade',
   },
   description:
-    'Portfolio of Syed Firas Peerzade — Full Stack Developer and SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Present). React Native, Next.js, Node.js, Supabase.',
+    'Portfolio of Syed Firas Peerzade — Full-Stack Developer and Frontend & Mobile Developer, and SDE Intern at Dream Space Interiors (Jul 2026 – Present), Remote. React, Next.js, React Native, Node.js, Supabase.',
   keywords: [
     'Syed Firas Peerzade',
-    'full stack developer',
-    'SDE Intern',
+    'full-stack developer',
     'frontend developer',
+    'mobile developer',
+    'SDE Intern',
     'react native developer',
     'next.js developer',
+    'angular developer',
+    'ionic developer',
     'portfolio',
     'mobile app developer',
     'Dream Space Interiors',
@@ -59,21 +62,21 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Syed Firas Peerzade | Full Stack Developer',
+    title: 'Syed Firas Peerzade | Full-Stack Developer | Frontend & Mobile Developer',
     description:
-      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Bangalore. Building Interiora Studio — React Native, Next.js, Node.js, Supabase.',
+      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Remote. Building Interiora Studio — React, Next.js, React Native, Node.js, Supabase.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
         width: 1200,
         height: 630,
-        alt: 'Syed Firas Peerzade — Full Stack Developer',
+        alt: 'Syed Firas Peerzade — Full-Stack Developer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Syed Firas Peerzade | Full Stack Developer',
+    title: 'Syed Firas Peerzade | Full-Stack Developer | Frontend & Mobile Developer',
     description:
       'SDE Intern at Dream Space Interiors — building Interiora Studio and functional digital products.',
     images: [`${SITE_URL}/og.png`],
@@ -109,22 +112,27 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle: 'Full Stack Developer · SDE Intern at Dream Space Interiors',
+        jobTitle:
+          'Full-Stack Developer | Frontend & Mobile Developer · SDE Intern at Dream Space Interiors',
         email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
         address: {
           '@type': 'PostalAddress',
+          addressLocality: 'Bhatkal',
           addressRegion: 'Karnataka',
           addressCountry: 'IN',
         },
         sameAs: [
           'https://github.com/syedfiras',
           'https://linkedin.com/in/syedfiras7',
+          'https://syedfiras.dev/',
         ],
         knowsAbout: [
-          'React Native',
-          'Next.js',
           'React',
+          'Next.js',
+          'React Native',
+          'Angular',
+          'Ionic',
           'TypeScript',
           'Node.js',
           'Supabase',
@@ -136,11 +144,6 @@ export default function RootLayout({
         worksFor: {
           '@type': 'Organization',
           name: 'Dream Space Interiors',
-          address: {
-            '@type': 'PostalAddress',
-            addressLocality: 'Bangalore',
-            addressCountry: 'IN',
-          },
         },
       },
     ],
