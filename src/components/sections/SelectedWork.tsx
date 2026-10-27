@@ -101,7 +101,9 @@ export default function SelectedWork() {
     <section id="work" ref={sectionRef} aria-label="Selected work" className="relative bg-void">
       <div className="container-x pt-24 pb-14 md:pt-32 md:pb-20">
         <Reveal className="flex items-center gap-4">
-          <span className="eyebrow">06 / Selected Work</span>
+          <span className="eyebrow">
+            {String(PROJECTS.length).padStart(2, '0')} / Selected Work
+          </span>
           <span className="h-px flex-1 bg-line" />
           <span className="eyebrow hidden sm:block">
             {String(PROJECTS.length).padStart(2, '0')} Projects
@@ -196,7 +198,7 @@ export default function SelectedWork() {
                           <a
                             href={project.live}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
                           >
                             Live <ArrowUpRight size={13} />
@@ -206,7 +208,7 @@ export default function SelectedWork() {
                           <a
                             href={project.github}
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
                           >
                             GitHub <Github size={13} />

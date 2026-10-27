@@ -84,7 +84,7 @@ export default async function ProjectPage({
               <a
                 href={project.live}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
               >
                 Live <ArrowUpRight size={13} />
@@ -94,7 +94,7 @@ export default async function ProjectPage({
               <a
                 href={project.github}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
               >
                 GitHub <Github size={13} />

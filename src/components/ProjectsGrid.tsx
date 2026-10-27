@@ -58,7 +58,7 @@ export default function ProjectsGrid() {
                 <a
                   href={project.live}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
                 >
                   Live <ArrowUpRight size={13} />
@@ -68,7 +68,7 @@ export default function ProjectsGrid() {
                 <a
                   href={project.github}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:text-accent"
                 >
                   GitHub <Github size={13} />

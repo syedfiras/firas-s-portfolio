@@ -14,6 +14,28 @@ export interface Project {
 export const PROJECTS: Project[] = [
   {
     id: '01',
+    category: 'E-Commerce',
+    title: 'Dream Space Interior Storefront',
+    description:
+      'A modular interiors e-commerce storefront with category browsing, product pages with transparent pricing, cart, login, order tracking, a professionals/bulk-pricing section, and WhatsApp ordering — built during my SDE internship at Dream Space Interiors, Bangalore (Jul 2026 – present).',
+    image: '/projects/dreamspace.png',
+    tags: ['Next.js', 'Supabase', 'Vercel'],
+    live: 'https://product-shop-lake.vercel.app/',
+    slug: 'dream-space-interior-storefront',
+  },
+  {
+    id: '02',
+    category: 'Marketing Site',
+    title: 'Fatti Tours & Travels',
+    description:
+      'A marketing website for a travel agency presenting domestic and international journeys, group departures, and tailor-made itineraries — delivered as a freelance client demo.',
+    image: '/projects/fattitours.png',
+    tags: ['React', 'Vite', 'Vercel'],
+    live: 'https://fattitourandtravel.vercel.app/',
+    slug: 'fatti-tours-travels',
+  },
+  {
+    id: '03',
     category: 'Web App',
     title: 'Interiora Studio',
     description:
@@ -23,7 +45,7 @@ export const PROJECTS: Project[] = [
     slug: 'interiora-studio',
   },
   {
-    id: '02',
+    id: '04',
     category: 'Mobile & Web',
     title: 'BIFA Football Club Manager',
     description:
@@ -35,7 +57,7 @@ export const PROJECTS: Project[] = [
     slug: 'bifa-football-club-manager',
   },
   {
-    id: '03',
+    id: '05',
     category: 'Web App',
     title: 'Auction Football System',
     description:
@@ -47,7 +69,7 @@ export const PROJECTS: Project[] = [
     slug: 'auction-football-system',
   },
   {
-    id: '04',
+    id: '06',
     category: 'Mobile & Web',
     title: 'GymNet Solutions Portal',
     description:
@@ -59,7 +81,7 @@ export const PROJECTS: Project[] = [
     slug: 'gymnet-solutions-portal',
   },
   {
-    id: '05',
+    id: '07',
     category: 'Web App',
     title: 'IJESTM Journal Platform',
     description:
@@ -70,7 +92,7 @@ export const PROJECTS: Project[] = [
     slug: 'ijestm-journal-platform',
   },
   {
-    id: '06',
+    id: '08',
     category: 'AI Platform',
     title: 'FootballCoach AI',
     description:

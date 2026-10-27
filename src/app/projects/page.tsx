@@ -3,10 +3,13 @@ import Nav from '@/components/Nav';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import { PROJECTS, PROJECTS_ALL_URL } from '@/data/projects';
 
+const HIGHLIGHTED_PROJECTS = PROJECTS.slice(0, 5)
+  .map((project) => project.title)
+  .join(', ');
+
 export const metadata: Metadata = {
   title: 'All Projects',
-  description:
-    'All projects by Syed Firas Peerzade — Interiora Studio, BIFA, Auction Football, GymNet, IJESTM, FootballCoach AI and more.',
+  description: `All projects by Syed Firas Peerzade — ${HIGHLIGHTED_PROJECTS} and more.`,
   alternates: { canonical: PROJECTS_ALL_URL },
 };
 
