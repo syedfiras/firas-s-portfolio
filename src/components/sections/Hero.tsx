@@ -1,23 +1,28 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, type CSSProperties } from 'react';
+import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
-import gsap from '@/lib/gsap';
+import gsap, { ScrollTrigger } from '@/lib/gsap';
 import { useLenis } from '@/lib/lenis';
 import { onIntroDone } from '@/lib/intro';
 import { MEDIA, prefersReducedMotion } from '@/lib/motion';
 import Particles from '@/components/ui/Particles';
-import Aurora from '@/components/ui/Aurora';
+import HeroVideo from '@/components/ui/HeroVideo';
 import Magnetic from '@/components/ui/Magnetic';
 import { HERO_WORDS, PROFILE } from '@/data/profile';
 
 const NAME = PROFILE.firstName.toUpperCase();
+const NAME_SIZE = 'clamp(2.8rem, 14vw, 15rem)';
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const uiRef = useRef<HTMLDivElement>(null);
+  const portraitRef = useRef<HTMLDivElement>(null);
+  const portraitZoomRef = useRef<HTMLDivElement>(null);
+  const portraitFadeRef = useRef<HTMLDivElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const maskRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const charRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -34,11 +39,14 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       gsap.set(chars, { yPercent: 115 });
       gsap.set(words, { autoAlpha: 0, y: 20 });
+      gsap.set(portraitRef.current, { yPercent: 115 });
+      gsap.set(portraitFadeRef.current, { autoAlpha: 1, y: 0 });
       gsap.set(uiRef.current, { autoAlpha: 0, y: 18 });
 
       const intro = gsap.timeline({ paused: true });
       intro
         .to(chars, { yPercent: 0, duration: 1.1, ease: 'expo.out', stagger: 0.045 })
+        .to(portraitRef.current, { yPercent: 0, duration: 1.1, ease: 'expo.out' }, 0.2)
         .to(uiRef.current, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.6');
 
       const stop = onIntroDone(() => intro.play());
@@ -46,6 +54,7 @@ export default function Hero() {
       if (prefersReducedMotion()) {
         gsap.set(chars, { autoAlpha: 1, yPercent: 0 });
         gsap.set(words, { autoAlpha: 1, y: 0 });
+        gsap.set(portraitRef.current, { yPercent: 0 });
         gsap.set(uiRef.current, { autoAlpha: 1, y: 0 });
         return stop;
       }
@@ -54,6 +63,15 @@ export default function Hero() {
 
       mm.add(MEDIA.full, () => {
         const spreadX = (i: number) => (i - (NAME.length - 1) / 2) * 30;
+        let leftTop = false;
+
+        const replayPortrait = () => {
+          gsap.fromTo(
+            portraitRef.current,
+            { yPercent: 115 },
+            { yPercent: 0, duration: 1.1, ease: 'expo.out', overwrite: 'auto' },
+          );
+        };
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -63,13 +81,24 @@ export default function Hero() {
             scrub: 0.7,
             pin: true,
             anticipatePin: 1,
+            onUpdate: (self) => {
+              if (self.progress > 0.08) leftTop = true;
+            },
+            onScrubComplete: (self) => {
+              if (leftTop && self.progress <= 0.001 && self.direction === -1) {
+                leftTop = false;
+                replayPortrait();
+              }
+            },
           },
         });
 
         tl.to(masks, { x: (i: number) => spreadX(i), duration: 0.5, ease: 'none' }, 0)
           .to(nameRef.current, { scale: 1.7, duration: 1, ease: 'none' }, 0)
+          .to(portraitZoomRef.current, { scale: 1.3, duration: 0.6, ease: 'none' }, 0)
           .to(bgRef.current, { scale: 1.32, yPercent: -8, duration: 1, ease: 'none' }, 0)
           .to(nameRef.current, { autoAlpha: 0.12, duration: 0.5, ease: 'none' }, 0.42)
+          .to(portraitFadeRef.current, { autoAlpha: 0, y: -36, duration: 0.3, ease: 'none' }, 0.4)
           .to(uiRef.current, { autoAlpha: 0, y: -24, duration: 0.22, ease: 'none' }, 0.12)
           .to(bgRef.current, { autoAlpha: 0.45, duration: 0.55, ease: 'none' }, 0.42)
           .to(words[0], { autoAlpha: 1, y: 0, duration: 0.2, ease: 'none' }, 0.46)
@@ -110,9 +139,9 @@ export default function Hero() {
       aria-label="Intro"
       className="relative flex min-h-screen flex-col justify-between overflow-hidden bg-void pb-8 pt-24 md:pb-10 md:pt-28"
     >
-      {/* Aurora gradient mesh background */}
+      {/* Background video */}
       <div ref={bgRef} className="absolute inset-0 z-10 will-change-transform">
-        <Aurora />
+        <HeroVideo />
       </div>
 
       {/* Particles */}
@@ -122,36 +151,65 @@ export default function Hero() {
 
       {/* Name + word row */}
       <div className="pointer-events-none relative z-30 flex flex-1 flex-col items-center justify-center px-5 text-center">
-        <h1
-          ref={nameRef}
-          className="display select-none text-ink"
-          style={{ fontSize: 'clamp(2.8rem, 14vw, 15rem)', letterSpacing: '0.01em', lineHeight: 0.82 }}
+        <div
+          className="relative flex w-full items-center justify-center"
+          style={{ '--name-size': NAME_SIZE } as CSSProperties}
         >
-          {NAME.split('').map((c, i) =>
-            c === ' ' ? (
-              <span key={`sp-${i}`} className="inline-block w-[0.2em]" aria-hidden />
-            ) : (
-              <span
-                key={`m-${i}`}
-                ref={(el) => {
-                  maskRefs.current[i] = el;
-                }}
-                className="inline-block overflow-hidden align-bottom"
-              >
+          <h1
+            ref={nameRef}
+            className="display select-none text-ink"
+            style={{ fontSize: 'var(--name-size)', letterSpacing: '0.01em', lineHeight: 0.82 }}
+          >
+            {NAME.split('').map((c, i) =>
+              c === ' ' ? (
+                <span key={`sp-${i}`} className="inline-block w-[0.2em]" aria-hidden />
+              ) : (
                 <span
+                  key={`m-${i}`}
                   ref={(el) => {
-                    charRefs.current[i] = el;
+                    maskRefs.current[i] = el;
                   }}
-                  className="inline-block will-change-transform"
+                  className="inline-block overflow-hidden align-bottom"
                 >
-                  {c}
+                  <span
+                    ref={(el) => {
+                      charRefs.current[i] = el;
+                    }}
+                    className="inline-block will-change-transform"
+                  >
+                    {c}
+                  </span>
                 </span>
-              </span>
-            ),
-          )}
-        </h1>
+              ),
+            )}
+          </h1>
 
-        <div className="mt-6 flex flex-row flex-wrap items-center justify-center gap-x-5 gap-y-1 md:mt-10 md:gap-x-12">
+          <figure
+            aria-hidden
+            className="pointer-events-none absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2"
+          >
+            <div ref={portraitZoomRef} className="will-change-transform">
+              <div className="overflow-hidden p-4 md:p-6">
+                <div ref={portraitRef} className="relative will-change-transform">
+                  <div ref={portraitFadeRef} className="relative">
+                    <div className="absolute left-1/2 top-1/2 -z-10 h-[74%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[64px]" />
+                    <Image
+                      src="/firasanimitaed.png"
+                      alt=""
+                      width={1024}
+                      height={1536}
+                      priority
+                      sizes="(min-width: 768px) 36vw, 60vw"
+                      className="h-[clamp(10rem,30vh,16rem)] w-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)] md:h-[clamp(18rem,50vh,34rem)]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div className="relative z-20 mt-6 flex flex-row flex-wrap items-center justify-center gap-x-5 gap-y-1 md:mt-10 md:gap-x-12">
           {HERO_WORDS.map((w, i) => (
             <span
               key={w}
