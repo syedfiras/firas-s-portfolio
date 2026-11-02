@@ -120,7 +120,7 @@ export default function Contact() {
       <div
         aria-hidden
         className="display pointer-events-none w-full max-w-full select-none whitespace-nowrap px-5 text-center leading-none text-ink/[0.04] md:px-10"
-        style={{ fontSize: 'clamp(1.5rem, 10.5vw, 18rem)' }}
+        style={{ fontSize: 'clamp(1rem, 7.5vw, 12rem)' }}
       >
         {PROFILE.name}
       </div>

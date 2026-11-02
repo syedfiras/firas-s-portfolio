@@ -157,8 +157,8 @@ export default function Hero() {
         >
           <h1
             ref={nameRef}
-            className="display select-none text-ink"
-            style={{ fontSize: 'var(--name-size)', letterSpacing: '0.01em', lineHeight: 0.82 }}
+            className="display font-hero select-none text-ink"
+            style={{ fontSize: 'var(--name-size)', letterSpacing: '0.02em', lineHeight: 1 }}
           >
             {NAME.split('').map((c, i) =>
               c === ' ' ? (
@@ -216,8 +216,8 @@ export default function Hero() {
               ref={(el) => {
                 wordRefs.current[i] = el;
               }}
-              className="display text-ink"
-              style={{ fontSize: 'clamp(1.6rem, 7vw, 7rem)' }}
+              className="display font-hero text-ink"
+              style={{ fontSize: 'clamp(1.6rem, 7vw, 7rem)', letterSpacing: '0.02em', lineHeight: 1 }}
             >
               {w}
             </span>

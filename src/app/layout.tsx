@@ -1,26 +1,21 @@
 import type { Metadata, Viewport } from 'next';
-import { Anton, Manrope, JetBrains_Mono } from 'next/font/google';
+import { Freckle_Face, Syne_Mono } from 'next/font/google';
 import './globals.css';
 import { LenisProvider } from '@/lib/lenis';
 import Cursor from '@/components/ui/Cursor';
 
-const anton = Anton({
+const freckle = Freckle_Face({
   weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-anton',
+  variable: '--font-freckle',
 });
 
-const manrope = Manrope({
+const syne = Syne_Mono({
+  weight: '400',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-manrope',
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-jetbrains',
+  variable: '--font-syne',
 });
 
 const SITE_URL = 'https://www.syedfiras.dev';
@@ -152,7 +147,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${manrope.variable} ${jetbrains.variable}`}
+      className={`${freckle.variable} ${syne.variable}`}
       suppressHydrationWarning
     >
       <head>

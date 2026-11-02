@@ -14,9 +14,10 @@
   --color-accent: #c6ff3d;
   --color-accent-dim: rgb(198 255 61 / 0.14);
 
-  --font-display: var(--font-anton), 'Arial Narrow', sans-serif;
-  --font-sans: var(--font-manrope), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-display: var(--font-syne), ui-monospace, monospace;
+  --font-hero: var(--font-freckle), 'Comic Sans MS', cursive;
+  --font-sans: var(--font-syne), ui-monospace, monospace;
+  --font-mono: var(--font-syne), ui-monospace, monospace;
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-power: cubic-bezier(0.22, 1, 0.36, 1);
@@ -121,15 +122,15 @@ html.lenis body {
   .display {
     font-family: var(--font-display);
     font-weight: 400;
-    line-height: 0.82;
-    letter-spacing: -0.01em;
+    line-height: 0.95;
+    letter-spacing: 0;
     text-transform: uppercase;
   }
 
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--color-ash);

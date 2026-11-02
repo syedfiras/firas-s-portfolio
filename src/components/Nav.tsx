@@ -74,7 +74,7 @@ export default function Nav() {
           <motion.div layout="position">
             <Link
               href="/"
-              className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-ink"
+              className="font-mono text-xs uppercase tracking-[0.2em] text-ink"
             >
               {PROFILE.firstName} {PROFILE.lastName}
             </Link>

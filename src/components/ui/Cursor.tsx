@@ -99,7 +99,7 @@ export default function Cursor() {
       >
         <span
           ref={labelRef}
-          className="font-mono text-[7px] font-bold uppercase tracking-widest text-void opacity-0"
+          className="font-mono text-[7px] uppercase tracking-widest text-void opacity-0"
         >
           View
         </span>
