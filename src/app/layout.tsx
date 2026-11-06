@@ -34,20 +34,18 @@ export const metadata: Metadata = {
     template: '%s | Syed Firas Peerzade',
   },
   description:
-    'Portfolio of Syed Firas Peerzade — Full-Stack Developer and Frontend & Mobile Developer, and SDE Intern at Dream Space Interiors (Jul 2026 – Present), Remote. React, Next.js, React Native, Node.js, Supabase.',
+    'Portfolio of Syed Firas Peerzade — Full-Stack Developer and Frontend & Mobile Developer. React, Next.js, React Native, Node.js, Supabase.',
   keywords: [
     'Syed Firas Peerzade',
     'full-stack developer',
     'frontend developer',
     'mobile developer',
-    'SDE Intern',
     'react native developer',
     'next.js developer',
     'angular developer',
     'ionic developer',
     'portfolio',
     'mobile app developer',
-    'Dream Space Interiors',
   ],
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
@@ -59,7 +57,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: 'Syed Firas Peerzade | Full-Stack Developer | Frontend & Mobile Developer',
     description:
-      'SDE Intern at Dream Space Interiors (Jul 2026 – Present), Remote. Building Interiora Studio — React, Next.js, React Native, Node.js, Supabase.',
+      'Full-Stack Developer and Frontend & Mobile Developer building with React, Next.js, React Native, Node.js, and Supabase.',
     images: [
       {
         url: `${SITE_URL}/og.png`,
@@ -73,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Syed Firas Peerzade | Full-Stack Developer | Frontend & Mobile Developer',
     description:
-      'SDE Intern at Dream Space Interiors — building Interiora Studio and functional digital products.',
+      'Full-Stack Developer and Frontend & Mobile Developer building functional web, mobile, and backend products.',
     images: [`${SITE_URL}/og.png`],
   },
   robots: {
@@ -107,8 +105,7 @@ export default function RootLayout({
         '@id': `${SITE_URL}/#person`,
         name: SITE_NAME,
         url: SITE_URL,
-        jobTitle:
-          'Full-Stack Developer | Frontend & Mobile Developer · SDE Intern at Dream Space Interiors',
+        jobTitle: 'Full-Stack Developer | Frontend & Mobile Developer',
         email: 'mailto:workwithfiras@gmail.com',
         image: `${SITE_URL}/og.png`,
         address: {
@@ -135,10 +132,6 @@ export default function RootLayout({
         alumniOf: {
           '@type': 'CollegeOrUniversity',
           name: 'AITM',
-        },
-        worksFor: {
-          '@type': 'Organization',
-          name: 'Dream Space Interiors',
         },
       },
     ],

@@ -13,7 +13,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
       'Dream Space Interiors needed a direct-to-consumer storefront for its modular interior products, where customers could browse categories, understand pricing upfront, and order without relying entirely on a sales call.',
     solution:
       'Built a Next.js storefront backed by Supabase and deployed on Vercel — category browsing, product pages with transparent pricing, cart and customer login, order tracking, a professionals section with bulk pricing, and WhatsApp ordering for assisted purchases.',
-    role: 'SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – present) — worked across the Next.js frontend, Supabase data layer, and Vercel deployment to build and ship the storefront.',
+    role: 'SDE Intern at Dream Space Interiors, Bangalore (Jul 2026 – Oct 2026) — worked across the Next.js frontend, Supabase data layer, and Vercel deployment to build and ship the storefront.',
     features: [
       'Category browsing for modular interiors',
       'Product pages with transparent pricing',
@@ -142,7 +142,7 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     problem:
       'Interior design teams needed a centralized platform to manage projects and day-to-day studio operations.',
     solution:
-      'Interiora Studio is an interior design management platform featuring authentication, project management, and a responsive application interface. I develop and ship features for the platform during my SDE internship at Dream Space Interiors.',
+      'Interiora Studio is an interior design management platform featuring authentication, project management, and a responsive application interface. I developed and shipped features for the platform during my SDE internship at Dream Space Interiors.',
     role: 'SDE Intern — independently developed and shipped application features, implemented interfaces and project management functionality, integrated application services, and maintained the existing production platform alongside the design team and supervisor.',
     features: [
       'Authentication',
@@ -155,6 +155,6 @@ export const CASE_STUDIES: Record<string, CaseStudy> = {
     challenge:
       'Extending and maintaining an existing production platform while continuing to ship new features.',
     result:
-      'Deployed on a Hostinger KVM 1 VPS and actively maintained as a production interior design management platform.',
+      'Deployed on a Hostinger KVM 1 VPS and maintained as a production interior design management platform.',
   },
 };

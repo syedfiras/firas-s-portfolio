@@ -63,15 +63,6 @@ export default function Hero() {
 
       mm.add(MEDIA.full, () => {
         const spreadX = (i: number) => (i - (NAME.length - 1) / 2) * 30;
-        let leftTop = false;
-
-        const replayPortrait = () => {
-          gsap.fromTo(
-            portraitRef.current,
-            { yPercent: 115 },
-            { yPercent: 0, duration: 1.1, ease: 'expo.out', overwrite: 'auto' },
-          );
-        };
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -81,15 +72,6 @@ export default function Hero() {
             scrub: 0.7,
             pin: true,
             anticipatePin: 1,
-            onUpdate: (self) => {
-              if (self.progress > 0.08) leftTop = true;
-            },
-            onScrubComplete: (self) => {
-              if (leftTop && self.progress <= 0.001 && self.direction === -1) {
-                leftTop = false;
-                replayPortrait();
-              }
-            },
           },
         });
 
@@ -231,19 +213,6 @@ export default function Hero() {
         className="relative z-40 flex flex-col gap-5 px-5 md:flex-row md:items-end md:justify-between md:px-10"
       >
         <div className="flex flex-col gap-5">
-          <div className="inline-flex w-fit items-center gap-2 border border-line bg-void/50 px-3 py-2 backdrop-blur-sm">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ash">
-              Currently building: {PROFILE.currentlyBuilding.name}
-            </span>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.16em] text-smoke sm:inline">
-              · {PROFILE.currentlyBuilding.stack.join(' · ')}
-            </span>
-          </div>
-
           <div className="flex flex-wrap items-center gap-4">
             <Magnetic strength={0.3}>
               <button

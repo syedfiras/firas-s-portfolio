@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
     category: 'E-Commerce',
     title: 'Dream Space Interior Storefront',
     description:
-      'A modular interiors e-commerce storefront with category browsing, product pages with transparent pricing, cart, login, order tracking, a professionals/bulk-pricing section, and WhatsApp ordering — built during my SDE internship at Dream Space Interiors, Bangalore (Jul 2026 – present).',
+      'A modular interiors e-commerce storefront with category browsing, product pages with transparent pricing, cart, login, order tracking, a professionals/bulk-pricing section, and WhatsApp ordering — built during my SDE internship at Dream Space Interiors, Bangalore (Jul 2026 – Oct 2026).',
     image: '/projects/dreamspace.png',
     tags: ['Next.js', 'Supabase', 'Vercel'],
     live: 'https://product-shop-lake.vercel.app/',

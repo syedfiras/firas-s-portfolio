@@ -21,7 +21,6 @@ export const PROFILE = {
   lastName: "Peerzade",
   role: "Full-Stack Developer | Frontend & Mobile Developer",
   status: "Available for Projects",
-  job: "SDE Intern at Dream Space Interiors",
   location: "Bhatkal, Karnataka, India",
   education: "B.Tech in Computer Science and Engineering, AITM, class of 2028",
   email: "workwithfiras@gmail.com",
@@ -30,10 +29,6 @@ export const PROFILE = {
   linkedin: "https://linkedin.com/in/syedfiras7",
   website: "https://syedfiras.dev/",
   resume: "/syedfiras.docx",
-  currentlyBuilding: {
-    name: "Interiora Studio",
-    stack: ["Next.js", "Supabase", "Tailwind"],
-  },
 } as const;
 
 export const NAV: NavItem[] = [
@@ -81,7 +76,7 @@ export const ABOUT_BIO =
 export const ABOUT_SNAPSHOT: SnapshotRow[] = [
   { label: "Based in", value: "Bhatkal, Karnataka, India" },
   { label: "Education", value: "B.Tech CSE, AITM — 2028" },
-  { label: "Currently", value: "SDE Intern at Dream Space Interiors (Remote)" },
+  { label: "Recent", value: "SDE Intern, Dream Space Interiors — 2026" },
   { label: "Focus", value: "Full-Stack · Web · Mobile · Backend" },
   { label: "Availability", value: "Available for Projects" },
 ];

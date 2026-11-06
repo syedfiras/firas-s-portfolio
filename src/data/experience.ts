@@ -12,9 +12,9 @@ export const EXPERIENCE: Experience[] = [
     company: 'Dream Space Interiors',
     role: 'SDE Intern',
     location: 'Remote',
-    period: 'Jul 2026 – Present',
+    period: 'Jul 2026 – Oct 2026',
     description:
-      'Independently develop and ship features for Interiora Studio, an interior design management platform. Implement application interfaces and project management functionality, develop responsive frontend features, integrate application services, and maintain and extend the existing production platform alongside the design team and supervisor. Deployed on a Hostinger KVM 1 VPS.',
+      'Independently developed and shipped features for Interiora Studio, an interior design management platform. Implemented application interfaces and project management functionality, developed responsive frontend features, integrated application services, and maintained and extended the existing production platform alongside the design team and supervisor. Deployed on a Hostinger KVM 1 VPS.',
     bullets: [
       'Authentication',
       'Project Management',
